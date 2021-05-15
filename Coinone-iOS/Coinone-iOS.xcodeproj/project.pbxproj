@@ -10,12 +10,17 @@
 		06A1A45591145692DA4F18C7 /* Pods_Coinone_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0AB500236EDF60103A408AE /* Pods_Coinone_iOS.framework */; };
 		CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */; };
 		CCA0ECC8264FA7A4001CC563 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0ECC7264FA7A4001CC563 /* SceneDelegate.swift */; };
-		CCA0ECCA264FA7A4001CC563 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0ECC9264FA7A4001CC563 /* ViewController.swift */; };
 		CCA0ECCD264FA7A4001CC563 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA0ECCB264FA7A4001CC563 /* Main.storyboard */; };
 		CCA0ECCF264FA7A6001CC563 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CCA0ECCE264FA7A6001CC563 /* Assets.xcassets */; };
 		CCA0ECD2264FA7A6001CC563 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA0ECD0264FA7A6001CC563 /* LaunchScreen.storyboard */; };
-		CCA0ECDC264FA7DB001CC563 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = CCA0ECDB264FA7DB001CC563 /* SwiftPackageProductDependency */; };
-		CCA0ECE0264FA7EE001CC563 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = CCA0ECDF264FA7EE001CC563 /* SwiftPackageProductDependency */; };
+		CCA0ECDC264FA7DB001CC563 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CCA0ECDB264FA7DB001CC563 /* Then */; };
+		CCA0ECE0264FA7EE001CC563 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CCA0ECDF264FA7EE001CC563 /* SnapKit */; };
+		CCAA9A21264FAB8A008E50BF /* Georaeso.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAA9A20264FAB8A008E50BF /* Georaeso.storyboard */; };
+		CCAA9A24264FAB95008E50BF /* Popup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAA9A23264FAB95008E50BF /* Popup.storyboard */; };
+		CCAA9A27264FABB0008E50BF /* My.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCAA9A26264FABB0008E50BF /* My.storyboard */; };
+		CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA9A2A264FACDD008E50BF /* UIColor+.swift */; };
+		CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA9A2D264FAEB9008E50BF /* CALayer+.swift */; };
+		CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA9A33264FAF68008E50BF /* UIView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,11 +29,16 @@
 		CCA0ECC2264FA7A4001CC563 /* Coinone-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coinone-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCA0ECC7264FA7A4001CC563 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CCA0ECC9264FA7A4001CC563 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CCA0ECCC264FA7A4001CC563 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CCA0ECCE264FA7A6001CC563 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCA0ECD1264FA7A6001CC563 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCA0ECD3264FA7A6001CC563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCAA9A20264FAB8A008E50BF /* Georaeso.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Georaeso.storyboard; sourceTree = "<group>"; };
+		CCAA9A23264FAB95008E50BF /* Popup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Popup.storyboard; sourceTree = "<group>"; };
+		CCAA9A26264FABB0008E50BF /* My.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = My.storyboard; sourceTree = "<group>"; };
+		CCAA9A2A264FACDD008E50BF /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		CCAA9A2D264FAEB9008E50BF /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
+		CCAA9A33264FAF68008E50BF /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		E0AB500236EDF60103A408AE /* Pods_Coinone_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coinone_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -37,8 +47,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCA0ECDC264FA7DB001CC563 /* BuildFile in Frameworks */,
-				CCA0ECE0264FA7EE001CC563 /* BuildFile in Frameworks */,
+				CCA0ECDC264FA7DB001CC563 /* Then in Frameworks */,
+				CCA0ECE0264FA7EE001CC563 /* SnapKit in Frameworks */,
 				06A1A45591145692DA4F18C7 /* Pods_Coinone_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,15 +77,60 @@
 		CCA0ECC4264FA7A4001CC563 /* Coinone-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */,
-				CCA0ECC7264FA7A4001CC563 /* SceneDelegate.swift */,
-				CCA0ECC9264FA7A4001CC563 /* ViewController.swift */,
-				CCA0ECCB264FA7A4001CC563 /* Main.storyboard */,
-				CCA0ECCE264FA7A6001CC563 /* Assets.xcassets */,
+				CCAA9A1D264FAA2A008E50BF /* Resource */,
+				CCAA9A1A264FAA0C008E50BF /* Source */,
 				CCA0ECD0264FA7A6001CC563 /* LaunchScreen.storyboard */,
-				CCA0ECD3264FA7A6001CC563 /* Info.plist */,
 			);
 			path = "Coinone-iOS";
+			sourceTree = "<group>";
+		};
+		CCAA9A1A264FAA0C008E50BF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA9A1E264FAA6C008E50BF /* ViewControllers */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CCAA9A1D264FAA2A008E50BF /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */,
+				CCA0ECC7264FA7A4001CC563 /* SceneDelegate.swift */,
+				CCAA9A29264FACC9008E50BF /* Extensions */,
+				CCAA9A1F264FAA7B008E50BF /* Storyboards */,
+				CCA0ECCE264FA7A6001CC563 /* Assets.xcassets */,
+				CCA0ECD3264FA7A6001CC563 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CCAA9A1E264FAA6C008E50BF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		CCAA9A1F264FAA7B008E50BF /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				CCA0ECCB264FA7A4001CC563 /* Main.storyboard */,
+				CCAA9A20264FAB8A008E50BF /* Georaeso.storyboard */,
+				CCAA9A23264FAB95008E50BF /* Popup.storyboard */,
+				CCAA9A26264FABB0008E50BF /* My.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		CCAA9A29264FACC9008E50BF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA9A2A264FACDD008E50BF /* UIColor+.swift */,
+				CCAA9A2D264FAEB9008E50BF /* CALayer+.swift */,
+				CCAA9A33264FAF68008E50BF /* UIView+.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		ED714A03D33751BE4D1F86CA /* Frameworks */ = {
@@ -92,7 +147,6 @@
 				3E2F6097EABAAACC664AB52A /* Pods-Coinone-iOS.debug.xcconfig */,
 				4BA5E0330054E48E147B52CA /* Pods-Coinone-iOS.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -115,8 +169,8 @@
 			);
 			name = "Coinone-iOS";
 			packageProductDependencies = (
-				CCA0ECDB264FA7DB001CC563 /* SwiftPackageProductDependency */,
-				CCA0ECDF264FA7EE001CC563 /* SwiftPackageProductDependency */,
+				CCA0ECDB264FA7DB001CC563 /* Then */,
+				CCA0ECDF264FA7EE001CC563 /* SnapKit */,
 			);
 			productName = "Coinone-iOS";
 			productReference = CCA0ECC2264FA7A4001CC563 /* Coinone-iOS.app */;
@@ -146,8 +200,8 @@
 			);
 			mainGroup = CCA0ECB9264FA7A4001CC563;
 			packageReferences = (
-				CCA0ECDA264FA7DB001CC563 /* RemoteSwiftPackageReference */,
-				CCA0ECDE264FA7EE001CC563 /* RemoteSwiftPackageReference */,
+				CCA0ECDA264FA7DB001CC563 /* XCRemoteSwiftPackageReference "Then" */,
+				CCA0ECDE264FA7EE001CC563 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = CCA0ECC3264FA7A4001CC563 /* Products */;
 			projectDirPath = "";
@@ -163,9 +217,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CCAA9A27264FABB0008E50BF /* My.storyboard in Resources */,
 				CCA0ECD2264FA7A6001CC563 /* LaunchScreen.storyboard in Resources */,
 				CCA0ECCF264FA7A6001CC563 /* Assets.xcassets in Resources */,
 				CCA0ECCD264FA7A4001CC563 /* Main.storyboard in Resources */,
+				CCAA9A21264FAB8A008E50BF /* Georaeso.storyboard in Resources */,
+				CCAA9A24264FAB95008E50BF /* Popup.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,8 +275,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CCA0ECCA264FA7A4001CC563 /* ViewController.swift in Sources */,
+				CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */,
+				CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */,
 				CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */,
+				CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */,
 				CCA0ECC8264FA7A4001CC563 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -370,7 +429,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QS42RPKQCD;
-				INFOPLIST_FILE = "Coinone-iOS/Info.plist";
+				INFOPLIST_FILE = "Coinone-iOS/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -390,7 +449,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = QS42RPKQCD;
-				INFOPLIST_FILE = "Coinone-iOS/Info.plist";
+				INFOPLIST_FILE = "Coinone-iOS/Resource/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -426,7 +485,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CCA0ECDA264FA7DB001CC563 /* RemoteSwiftPackageReference */ = {
+		CCA0ECDA264FA7DB001CC563 /* XCRemoteSwiftPackageReference "Then" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/devxoul/Then";
 			requirement = {
@@ -434,7 +493,7 @@
 				minimumVersion = 2.7.0;
 			};
 		};
-		CCA0ECDE264FA7EE001CC563 /* RemoteSwiftPackageReference */ = {
+		CCA0ECDE264FA7EE001CC563 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
 			requirement = {
@@ -445,14 +504,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CCA0ECDB264FA7DB001CC563 /* SwiftPackageProductDependency */ = {
+		CCA0ECDB264FA7DB001CC563 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CCA0ECDA264FA7DB001CC563 /* RemoteSwiftPackageReference */;
+			package = CCA0ECDA264FA7DB001CC563 /* XCRemoteSwiftPackageReference "Then" */;
 			productName = Then;
 		};
-		CCA0ECDF264FA7EE001CC563 /* SwiftPackageProductDependency */ = {
+		CCA0ECDF264FA7EE001CC563 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CCA0ECDE264FA7EE001CC563 /* RemoteSwiftPackageReference */;
+			package = CCA0ECDE264FA7EE001CC563 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
