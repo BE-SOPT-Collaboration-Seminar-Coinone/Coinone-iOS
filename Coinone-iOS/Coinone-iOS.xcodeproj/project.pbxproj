@@ -8,6 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		06A1A45591145692DA4F18C7 /* Pods_Coinone_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0AB500236EDF60103A408AE /* Pods_Coinone_iOS.framework */; };
+		CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E5A26517E6000637BCE /* TabbarViewController.swift */; };
+		CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E6126517F0500637BCE /* HomeViewController.swift */; };
+		CC272E6526517F1000637BCE /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E6426517F1000637BCE /* TransactionViewController.swift */; };
+		CC272E6E2651872400637BCE /* NotoSansKR-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E682651872300637BCE /* NotoSansKR-Regular.otf */; };
+		CC272E6F2651872400637BCE /* NotoSansKR-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E692651872300637BCE /* NotoSansKR-Thin.otf */; };
+		CC272E702651872400637BCE /* NotoSansKR-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6A2651872300637BCE /* NotoSansKR-Medium.otf */; };
+		CC272E712651872400637BCE /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6B2651872400637BCE /* NotoSansKR-Light.otf */; };
+		CC272E722651872400637BCE /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6C2651872400637BCE /* NotoSansKR-Black.otf */; };
+		CC272E732651872400637BCE /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6D2651872400637BCE /* NotoSansKR-Bold.otf */; };
 		CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */; };
 		CCA0ECC8264FA7A4001CC563 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0ECC7264FA7A4001CC563 /* SceneDelegate.swift */; };
 		CCA0ECCD264FA7A4001CC563 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA0ECCB264FA7A4001CC563 /* Main.storyboard */; };
@@ -26,6 +35,15 @@
 /* Begin PBXFileReference section */
 		3E2F6097EABAAACC664AB52A /* Pods-Coinone-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coinone-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Coinone-iOS/Pods-Coinone-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4BA5E0330054E48E147B52CA /* Pods-Coinone-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coinone-iOS.release.xcconfig"; path = "Target Support Files/Pods-Coinone-iOS/Pods-Coinone-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		CC272E5A26517E6000637BCE /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		CC272E6126517F0500637BCE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CC272E6426517F1000637BCE /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
+		CC272E682651872300637BCE /* NotoSansKR-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Regular.otf"; sourceTree = "<group>"; };
+		CC272E692651872300637BCE /* NotoSansKR-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Thin.otf"; sourceTree = "<group>"; };
+		CC272E6A2651872300637BCE /* NotoSansKR-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Medium.otf"; sourceTree = "<group>"; };
+		CC272E6B2651872400637BCE /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
+		CC272E6C2651872400637BCE /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
+		CC272E6D2651872400637BCE /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
 		CCA0ECC2264FA7A4001CC563 /* Coinone-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coinone-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCA0ECC7264FA7A4001CC563 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +74,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC272E672651871300637BCE /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				CC272E6C2651872400637BCE /* NotoSansKR-Black.otf */,
+				CC272E6D2651872400637BCE /* NotoSansKR-Bold.otf */,
+				CC272E6B2651872400637BCE /* NotoSansKR-Light.otf */,
+				CC272E6A2651872300637BCE /* NotoSansKR-Medium.otf */,
+				CC272E682651872300637BCE /* NotoSansKR-Regular.otf */,
+				CC272E692651872300637BCE /* NotoSansKR-Thin.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		CCA0ECB9264FA7A4001CC563 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +126,7 @@
 		CCAA9A1D264FAA2A008E50BF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				CC272E672651871300637BCE /* Font */,
 				CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */,
 				CCA0ECC7264FA7A4001CC563 /* SceneDelegate.swift */,
 				CCAA9A29264FACC9008E50BF /* Extensions */,
@@ -108,6 +140,9 @@
 		CCAA9A1E264FAA6C008E50BF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CC272E5A26517E6000637BCE /* TabbarViewController.swift */,
+				CC272E6126517F0500637BCE /* HomeViewController.swift */,
+				CC272E6426517F1000637BCE /* TransactionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -218,11 +253,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCAA9A27264FABB0008E50BF /* My.storyboard in Resources */,
+				CC272E722651872400637BCE /* NotoSansKR-Black.otf in Resources */,
 				CCA0ECD2264FA7A6001CC563 /* LaunchScreen.storyboard in Resources */,
 				CCA0ECCF264FA7A6001CC563 /* Assets.xcassets in Resources */,
+				CC272E702651872400637BCE /* NotoSansKR-Medium.otf in Resources */,
 				CCA0ECCD264FA7A4001CC563 /* Main.storyboard in Resources */,
+				CC272E6F2651872400637BCE /* NotoSansKR-Thin.otf in Resources */,
+				CC272E712651872400637BCE /* NotoSansKR-Light.otf in Resources */,
 				CCAA9A21264FAB8A008E50BF /* Georaeso.storyboard in Resources */,
 				CCAA9A24264FAB95008E50BF /* Popup.storyboard in Resources */,
+				CC272E732651872400637BCE /* NotoSansKR-Bold.otf in Resources */,
+				CC272E6E2651872400637BCE /* NotoSansKR-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,9 +318,12 @@
 			files = (
 				CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */,
 				CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */,
+				CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */,
 				CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */,
 				CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */,
+				CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */,
 				CCA0ECC8264FA7A4001CC563 /* SceneDelegate.swift in Sources */,
+				CC272E6526517F1000637BCE /* TransactionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
