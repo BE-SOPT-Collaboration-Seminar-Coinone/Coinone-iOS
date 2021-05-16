@@ -11,6 +11,7 @@ import SnapKit
 class GeoraesoVC: UIViewController {
     private var stockList: [StockModel] = []
     
+    // MARK: - Header UI
     private lazy var headerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -67,20 +68,23 @@ class GeoraesoVC: UIViewController {
         return view
     }()
     
+    // MARK: - Filter UI
+    // coin filter button
     private lazy var coinView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.setBorder(borderColor: nil, borderWidth: nil)
         
         view.addSubview(coinLabel)
-        view.addSubview(filterButton)
+        view.addSubview(cFilterButton)
         
         coinLabel.snp.makeConstraints { make in
             make.top.equalTo(view.snp.top).inset(6)
             make.leading.equalTo(view.snp.leading).inset(8)
         }
-        filterButton.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).inset(10)
+        cFilterButton.snp.makeConstraints { make in
+            make.centerY.equalTo(coinLabel)
+            make.leading.equalTo(coinLabel.snp.trailing).inset(-38)
         }
         return view
     }()
@@ -91,20 +95,32 @@ class GeoraesoVC: UIViewController {
         label.textColor = UIColor.textGray
         return label
     }()
+    private lazy var cFilterButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "group423"), for: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: 20,
+                                                     weight: .light,
+                                                     scale: .large),
+                                               forImageIn: .normal)
+        return button
+    }()
+    
+    // curvalue filter button
     private lazy var curValueView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.setBorder(borderColor: nil, borderWidth: nil)
         
         view.addSubview(curValueLabel)
-        view.addSubview(filterButton)
+        view.addSubview(vFilterButton)
         
         curValueLabel.snp.makeConstraints { make in
             make.top.equalTo(view.snp.top).inset(6)
             make.leading.equalTo(view.snp.leading).inset(8)
         }
-        filterButton.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).inset(10)
+        vFilterButton.snp.makeConstraints { make in
+            make.centerY.equalTo(curValueLabel)
+            make.leading.equalTo(curValueLabel.snp.trailing).inset(-38)
         }
         
         return view
@@ -116,21 +132,32 @@ class GeoraesoVC: UIViewController {
         label.textColor = UIColor.textGray
         return label
     }()
+    private lazy var vFilterButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "group423"), for: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: 20,
+                                                     weight: .light,
+                                                     scale: .large),
+                                               forImageIn: .normal)
+        return button
+    }()
     
+    // rate filter button
     private lazy var rateView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.setBorder(borderColor: nil, borderWidth: nil)
         
         view.addSubview(rateLabel)
-        view.addSubview(filterButton)
+        view.addSubview(rFilterButton)
         
         rateLabel.snp.makeConstraints { make in
             make.top.equalTo(view.snp.top).inset(6)
             make.leading.equalTo(view.snp.leading).inset(8)
         }
-        filterButton.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).inset(10)
+        rFilterButton.snp.makeConstraints { make in
+            make.centerY.equalTo(rateLabel)
+            make.leading.equalTo(rateLabel.snp.trailing).inset(-10)
         }
         
         return view
@@ -142,20 +169,32 @@ class GeoraesoVC: UIViewController {
         label.textColor = UIColor.textGray
         return label
     }()
+    private lazy var rFilterButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(named: "group423"), for: .normal)
+        button.setPreferredSymbolConfiguration(.init(pointSize: 20,
+                                                     weight: .light,
+                                                     scale: .large),
+                                               forImageIn: .normal)
+        return button
+    }()
+    
+    // trans price filter button
     private lazy var transPriceView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.setBorder(borderColor: nil, borderWidth: nil)
         
         view.addSubview(transPriceLabel)
-        view.addSubview(filterButton)
+        view.addSubview(pFilterButton)
         
         transPriceLabel.snp.makeConstraints { make in
             make.top.equalTo(view.snp.top).inset(6)
             make.leading.equalTo(view.snp.leading).inset(8)
         }
-        filterButton.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top).inset(10)
+        pFilterButton.snp.makeConstraints { make in
+            make.centerY.equalTo(transPriceLabel)
+            make.leading.equalTo(transPriceLabel.snp.trailing).inset(-3)
         }
         
         return view
@@ -167,9 +206,9 @@ class GeoraesoVC: UIViewController {
         label.textColor = UIColor.black
         return label
     }()
-    private lazy var filterButton: UIButton = {
+    private lazy var pFilterButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "group423"), for: .normal)
+        button.setImage(UIImage(named: "group411"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(pointSize: 20,
                                                      weight: .light,
                                                      scale: .large),
@@ -177,6 +216,8 @@ class GeoraesoVC: UIViewController {
         return button
     }()
     
+    
+    // MARK: - Table View
     private lazy var tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .plain)
         tableView.delegate = self
@@ -190,6 +231,7 @@ class GeoraesoVC: UIViewController {
         return tableView
     }()
     
+    // MARK: - Table Header View
     private lazy var tableHeaderView: UIView = {
         let view = UIView()
         
@@ -241,6 +283,7 @@ class GeoraesoVC: UIViewController {
         setDummyData()
     }
     
+    // MARK: - DummyData
     func setDummyData() {
         stockList.append(contentsOf: [
                             StockModel(logoImage: "",
