@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		06A1A45591145692DA4F18C7 /* Pods_Coinone_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0AB500236EDF60103A408AE /* Pods_Coinone_iOS.framework */; };
-		922E2322264FB40300F8ADA7 /* GeoraesoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 922E2321264FB40300F8ADA7 /* GeoraesoVC.swift */; };
-		92C9EE8F2650314C00E73641 /* StockTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9EE8E2650314C00E73641 /* StockTVC.swift */; };
-		92C9EE962650609300E73641 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92C9EE952650609300E73641 /* StockModel.swift */; };
 		CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E5A26517E6000637BCE /* TabbarViewController.swift */; };
 		CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E6126517F0500637BCE /* HomeViewController.swift */; };
 		CC272E6526517F1000637BCE /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E6426517F1000637BCE /* TransactionViewController.swift */; };
@@ -38,9 +35,6 @@
 /* Begin PBXFileReference section */
 		3E2F6097EABAAACC664AB52A /* Pods-Coinone-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coinone-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Coinone-iOS/Pods-Coinone-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4BA5E0330054E48E147B52CA /* Pods-Coinone-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coinone-iOS.release.xcconfig"; path = "Target Support Files/Pods-Coinone-iOS/Pods-Coinone-iOS.release.xcconfig"; sourceTree = "<group>"; };
-		922E2321264FB40300F8ADA7 /* GeoraesoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoraesoVC.swift; sourceTree = "<group>"; };
-		92C9EE8E2650314C00E73641 /* StockTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StockTVC.swift; path = "Coinone-iOS/Source/Cells/StockTVC.swift"; sourceTree = SOURCE_ROOT; };
-		92C9EE952650609300E73641 /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
 		CC272E5A26517E6000637BCE /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		CC272E6126517F0500637BCE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CC272E6426517F1000637BCE /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
@@ -54,7 +48,7 @@
 		CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCA0ECC7264FA7A4001CC563 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		CCA0ECCC264FA7A4001CC563 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		CCA0ECCE264FA7A6001CC563 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "Coinone-iOS/Resource/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		CCA0ECCE264FA7A6001CC563 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CCA0ECD1264FA7A6001CC563 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CCA0ECD3264FA7A6001CC563 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CCAA9A20264FAB8A008E50BF /* Georaeso.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Georaeso.storyboard; sourceTree = "<group>"; };
@@ -80,38 +74,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		922E231F264FB3D600F8ADA7 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				92C9EE942650607500E73641 /* Models */,
-				92C9EE8D2650313500E73641 /* Cells */,
-				922E2320264FB3E600F8ADA7 /* ViewControllers */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		922E2320264FB3E600F8ADA7 /* ViewControllers */ = {
-			isa = PBXGroup;
-			children = (
-				922E2321264FB40300F8ADA7 /* GeoraesoVC.swift */,
-			);
-			path = ViewControllers;
-			sourceTree = "<group>";
-		};
-		92C9EE8D2650313500E73641 /* Cells */ = {
-			isa = PBXGroup;
-			children = (
-				92C9EE8E2650314C00E73641 /* StockTVC.swift */,
-			);
-			path = Cells;
-			sourceTree = "<group>";
-		};
-		92C9EE942650607500E73641 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				92C9EE952650609300E73641 /* StockModel.swift */,
-			);
-			path = Models;
 		CC272E672651871300637BCE /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,11 +108,19 @@
 		CCA0ECC4264FA7A4001CC563 /* Coinone-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				922E231F264FB3D600F8ADA7 /* Source */,
 				CCAA9A1D264FAA2A008E50BF /* Resource */,
+				CCAA9A1A264FAA0C008E50BF /* Source */,
 				CCA0ECD0264FA7A6001CC563 /* LaunchScreen.storyboard */,
 			);
 			path = "Coinone-iOS";
+			sourceTree = "<group>";
+		};
+		CCAA9A1A264FAA0C008E50BF /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CCAA9A1E264FAA6C008E50BF /* ViewControllers */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 		CCAA9A1D264FAA2A008E50BF /* Resource */ = {
@@ -167,7 +137,6 @@
 			path = Resource;
 			sourceTree = "<group>";
 		};
-
 		CCAA9A1E264FAA6C008E50BF /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -349,11 +318,8 @@
 			files = (
 				CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */,
 				CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */,
-				92C9EE962650609300E73641 /* StockModel.swift in Sources */,
-				922E2322264FB40300F8ADA7 /* GeoraesoVC.swift in Sources */,
 				CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */,
 				CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */,
-				92C9EE8F2650314C00E73641 /* StockTVC.swift in Sources */,
 				CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */,
 				CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */,
 				CCA0ECC8264FA7A4001CC563 /* SceneDelegate.swift in Sources */,
