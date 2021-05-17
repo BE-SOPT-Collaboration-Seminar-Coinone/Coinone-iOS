@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		06A1A45591145692DA4F18C7 /* Pods_Coinone_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0AB500236EDF60103A408AE /* Pods_Coinone_iOS.framework */; };
+		CC0E23272652232700B982A0 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0E23262652232700B982A0 /* MyViewController.swift */; };
+		CC0E232B265223FE00B982A0 /* StockTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0E232A265223FE00B982A0 /* StockTVC.swift */; };
+		CC0E232D2652241D00B982A0 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0E232C2652241D00B982A0 /* StockModel.swift */; };
+		CC0E232F2652244F00B982A0 /* GeoraesoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0E232E2652244F00B982A0 /* GeoraesoVC.swift */; };
 		CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E5A26517E6000637BCE /* TabbarViewController.swift */; };
 		CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E6126517F0500637BCE /* HomeViewController.swift */; };
 		CC272E6526517F1000637BCE /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E6426517F1000637BCE /* TransactionViewController.swift */; };
@@ -35,6 +39,10 @@
 /* Begin PBXFileReference section */
 		3E2F6097EABAAACC664AB52A /* Pods-Coinone-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coinone-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Coinone-iOS/Pods-Coinone-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4BA5E0330054E48E147B52CA /* Pods-Coinone-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coinone-iOS.release.xcconfig"; path = "Target Support Files/Pods-Coinone-iOS/Pods-Coinone-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		CC0E23262652232700B982A0 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		CC0E232A265223FE00B982A0 /* StockTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTVC.swift; sourceTree = "<group>"; };
+		CC0E232C2652241D00B982A0 /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
+		CC0E232E2652244F00B982A0 /* GeoraesoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoraesoVC.swift; sourceTree = "<group>"; };
 		CC272E5A26517E6000637BCE /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		CC272E6126517F0500637BCE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CC272E6426517F1000637BCE /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
@@ -74,6 +82,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC0E2328265223B000B982A0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CC0E232A265223FE00B982A0 /* StockTVC.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		CC0E2329265223B800B982A0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CC0E232C2652241D00B982A0 /* StockModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		CC272E672651871300637BCE /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +142,8 @@
 		CCAA9A1A264FAA0C008E50BF /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CC0E2329265223B800B982A0 /* Models */,
+				CC0E2328265223B000B982A0 /* Cells */,
 				CCAA9A1E264FAA6C008E50BF /* ViewControllers */,
 			);
 			path = Source;
@@ -143,6 +169,8 @@
 				CC272E5A26517E6000637BCE /* TabbarViewController.swift */,
 				CC272E6126517F0500637BCE /* HomeViewController.swift */,
 				CC272E6426517F1000637BCE /* TransactionViewController.swift */,
+				CC0E23262652232700B982A0 /* MyViewController.swift */,
+				CC0E232E2652244F00B982A0 /* GeoraesoVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -317,11 +345,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */,
+				CC0E232D2652241D00B982A0 /* StockModel.swift in Sources */,
 				CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */,
+				CC0E232B265223FE00B982A0 /* StockTVC.swift in Sources */,
 				CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */,
 				CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */,
+				CC0E23272652232700B982A0 /* MyViewController.swift in Sources */,
 				CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */,
 				CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */,
+				CC0E232F2652244F00B982A0 /* GeoraesoVC.swift in Sources */,
 				CCA0ECC8264FA7A4001CC563 /* SceneDelegate.swift in Sources */,
 				CC272E6526517F1000637BCE /* TransactionViewController.swift in Sources */,
 			);
