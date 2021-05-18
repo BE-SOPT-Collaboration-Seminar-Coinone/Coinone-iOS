@@ -35,29 +35,29 @@ class GeoraesoVC: UIViewController {
     
     private lazy var myLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
         label.text = "마이"
+        label.font = UIFont(name: "NotoSansKR-Bold", size: 16)
         label.textColor = UIColor.textGray
         return label
     }()
     private lazy var marketLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
         label.text = "거래소"
+        label.font = UIFont(name: "NotoSansKR-Bold", size: 16)
         label.textColor = UIColor.black
         return label
     }()
     private lazy var easyTransLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
         label.text = "간편 구매"
+        label.font = UIFont(name: "NotoSansKR-Bold", size: 16)
         label.textColor = UIColor.textGray
         return label
     }()
     private lazy var infoLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 16)
         label.text = "정보"
+        label.font = UIFont(name: "NotoSansKR-Bold", size: 16)
         label.textColor = UIColor.textGray
         return label
     }()
@@ -89,8 +89,8 @@ class GeoraesoVC: UIViewController {
     }()
     private lazy var coinLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
         label.text = "코인명"
+        label.font = UIFont(name: "NotoSansKR-Bold", size: 12)
         label.textColor = UIColor.textGray
         return label
     }()
@@ -126,8 +126,8 @@ class GeoraesoVC: UIViewController {
     }()
     private lazy var curValueLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
         label.text = "현재가"
+        label.font = UIFont(name: "NotoSansKR-Bold", size: 12)
         label.textColor = UIColor.textGray
         return label
     }()
@@ -163,8 +163,8 @@ class GeoraesoVC: UIViewController {
     }()
     private lazy var rateLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
         label.text = "등락률"
+        label.font = UIFont(name: "NotoSansKR-Bold", size: 12)
         label.textColor = UIColor.textGray
         return label
     }()
@@ -200,9 +200,9 @@ class GeoraesoVC: UIViewController {
     }()
     private lazy var transPriceLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 12)
         label.text = "거래대금"
-        label.textColor = UIColor.black
+        label.font = UIFont(name: "NotoSansKR-Bold", size: 12)
+        label.textColor = UIColor(red: 101.0 / 255.0, green: 101.0 / 255.0, blue: 101.0 / 255.0, alpha: 1.0)
         return label
     }()
     private lazy var pFilterButton: UIButton = {
@@ -212,6 +212,8 @@ class GeoraesoVC: UIViewController {
                                                      weight: .light,
                                                      scale: .large),
                                                forImageIn: .normal)
+        button.addTarget(self, action: #selector(touchUpFilterButton), for: .touchUpInside)
+        
         return button
     }()
     
@@ -256,7 +258,7 @@ class GeoraesoVC: UIViewController {
     private var tableHeaderLabel: UILabel = {
         let label = UILabel()
         label.text = "Main Market"
-        label.font = .boldSystemFont(ofSize: 12)
+        label.font = UIFont.init(name: "NotoSansKR-Bold", size: 12)
         label.textColor = UIColor(red: 101.0 / 255.0, green: 101.0 / 255.0, blue: 101.0 / 255.0, alpha: 1.0)
         
         
@@ -405,6 +407,15 @@ extension GeoraesoVC {
         }
     }
     
+}
+
+// MARK: - Action
+extension GeoraesoVC {
+    @objc func touchUpFilterButton() {
+        print("touchUp transPrice Filter Button")
+        self.stockList = self.stockList.sorted(by: { $0.transPrice > $1.transPrice })
+        self.tableView.reloadData()
+    }
 }
 
 // MARK: - TableViewDelegate
