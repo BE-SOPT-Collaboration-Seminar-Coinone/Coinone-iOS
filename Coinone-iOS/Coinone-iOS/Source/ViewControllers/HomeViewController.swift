@@ -8,24 +8,41 @@ import SnapKit
 import Then
 import UIKit
 
+// MARK: - HomeViewController
 class HomeViewController: UIViewController {
   
+  // MARK: - LifeCycles
   override func viewDidLoad() {
     super.viewDidLoad()
     layout()
+    register()
+    self.menuCollectionView.delegate = self
+    self.menuCollectionView.dataSource = self
+    self.favoriteTableView.delegate = self
+    self.favoriteTableView.dataSource = self
+  }
+  
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    let popupViewController = PopupViewController()
+    popupViewController.modalPresentationStyle = .overFullScreen
+    self.present(popupViewController, animated: false, completion: nil)
   }
   
   // MARK: - Components
+  static var menuIndex = 0
+  
   let topView = UIView()
   let titleImageView = UIImageView()
   let searchButton = UIButton()
   let menuCollectionView: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
     layout.scrollDirection = .horizontal
-    
+    layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
     let collectionView = UICollectionView(frame: .zero,
                                           collectionViewLayout: layout)
     collectionView.isScrollEnabled = false
+    collectionView.translatesAutoresizingMaskIntoConstraints = false
     return collectionView
   }()
   let mainCoinContainerView = UIView()
@@ -43,10 +60,51 @@ class HomeViewController: UIViewController {
   let favoriteTitleLabel = UILabel()
   let favoriteAddButton = UIButton()
   
-  let favoriteTableView = UITableView()
+  private lazy var favoriteTableView = UITableView()
+  
+  var menuTitles: [String] = ["마이", "거래소", "간편구매", "정보"]
+  var coinModel: [CoinModel] = [CoinModel(coinLogoImageName: "coinIcon",
+                                          coinEnglishTitle: "KLAY",
+                                          coinKoreanTitle: "클레이튼",
+                                          coinPrice: "1,900.0",
+                                          riseOrDescent: "rise",
+                                          degree: "66.8",
+                                          percentage: "(+3.64%)",
+                                          graphImageName: "graph"),
+                                CoinModel(coinLogoImageName: "coinIcon",
+                                          coinEnglishTitle: "KLAY",
+                                          coinKoreanTitle: "클레이튼",
+                                          coinPrice: "1,900.0",
+                                          riseOrDescent: "rise",
+                                          degree: "66.8",
+                                          percentage: "(+3.64%)",
+                                          graphImageName: "graph")]
 }
 
+// MARK: - Extensions
 extension HomeViewController {
+  // MARK: - Helpers
+  func register() {
+    self.menuCollectionView.register(TopMenuCollectionViewCell.self, forCellWithReuseIdentifier: TopMenuCollectionViewCell.identifier)
+    self.favoriteTableView.register(FavoriteTableViewCell.self, forCellReuseIdentifier: FavoriteTableViewCell.identifier)
+  }
+  func layout() {
+    layoutTopView()
+    layoutTitleImageView()
+    layoutSearchButton()
+    layoutMenuCollectionView()
+    layoutMainCointContainerView()
+    layoutMainCoinKoreanTitleLabel()
+    layoutMainCoinEnglishTitleLabel()
+    layoutMainCoinTitleLogoView()
+    layoutMainCoinPriceLabel()
+    layoutMainCoinStateContainerView()
+    layoutMainCoinStateIconView()
+    layoutMainCoinStateDegreeLabel()
+    layoutMainCoinStatePercentageLabel()
+    layoutMainCoinGraphView()
+    layoutFavoriteTableView()
+  }
   func layoutTopView() {
     self.view.add(topView) {
       $0.backgroundColor = .mainBlue
@@ -81,11 +139,11 @@ extension HomeViewController {
   }
   func layoutMenuCollectionView() {
     self.topView.add(menuCollectionView) {
-      $0.backgroundColor = .white
+      $0.backgroundColor = .clear
       $0.snp.makeConstraints {
         $0.top.equalTo(self.titleImageView.snp.bottom).offset(13.6)
-        $0.leading.equalTo(self.titleImageView.snp.leading)
-        $0.width.equalTo(self.view.frame.width*224/375)
+        $0.width.equalTo(self.view.frame.height*244/375)
+        $0.leading.equalTo(self.titleImageView.snp.leading).offset(-3)
         $0.height.equalTo(30)
       }
     }
@@ -93,12 +151,12 @@ extension HomeViewController {
   func layoutMainCointContainerView() {
     self.topView.add(mainCoinContainerView) {
       $0.backgroundColor = .white
-      $0.layer.applyShadow(color: .blue, alpha: 0.12, x: 0, y: 0, blur: 8)
+      $0.layer.applyShadow(color: .black, alpha: 0.12, x: 0, y: 0, blur: 8)
       $0.snp.makeConstraints {
         $0.centerX.equalTo(self.view.snp.centerX)
         $0.leading.equalTo(self.topView.snp.leading).offset(31)
         $0.top.equalTo(self.menuCollectionView.snp.bottom).offset(24)
-        $0.height.equalTo(169)
+        $0.height.equalTo(self.view.frame.width*169/375)
       }
     }
   }
@@ -116,7 +174,7 @@ extension HomeViewController {
       $0.setLabel(text: "KLAY", textColor: .black, font: .notoSansKRBoldFont(fontSize: 14))
       $0.snp.makeConstraints {
         $0.centerY.equalTo(self.mainCoinKoreanTitleLabel.snp.centerY)
-        $0.trailing.equalTo(self.mainCoinKoreanTitleLabel.snp.leading).offset(-4)
+        $0.trailing.equalTo(self.mainCoinKoreanTitleLabel.snp.leading).offset(-8)
       }
     }
   }
@@ -125,8 +183,9 @@ extension HomeViewController {
       $0.image = UIImage(named: "coinIcon")
       $0.snp.makeConstraints {
         $0.trailing.equalTo(self.mainCoinEnglishTitleLabel.snp.leading).offset(-4)
-        $0.centerY.equalTo(self.mainCoinKoreanTitleLabel.snp.centerY)
-        $0.width.height.equalTo(self.mainCoinEnglishTitleLabel.snp.height)
+        $0.centerY.equalTo(self.mainCoinEnglishTitleLabel.snp.centerY)
+        $0.top.equalTo(self.mainCoinEnglishTitleLabel.snp.top).offset(5)
+        $0.height.equalTo(self.mainCoinTitleLogoView.snp.width)
       }
     }
   }
@@ -135,7 +194,7 @@ extension HomeViewController {
       $0.setLabel(text: "1,900.0", textColor: .black, font: UIFont.systemFont(ofSize: 20, weight: .bold))
       $0.snp.makeConstraints {
         $0.centerX.equalTo(self.mainCoinContainerView.snp.centerX)
-        $0.top.equalTo(self.mainCoinEnglishTitleLabel.snp.bottom).offset(6)
+        $0.top.equalTo(self.mainCoinEnglishTitleLabel.snp.bottom).offset(8)
       }
     }
   }
@@ -144,7 +203,7 @@ extension HomeViewController {
       $0.backgroundColor = .clear
       $0.snp.makeConstraints {
         $0.centerX.equalTo(self.mainCoinContainerView.snp.centerX)
-        $0.top.equalTo(self.mainCoinPriceLabel.snp.bottom).offset(10)
+        $0.top.equalTo(self.mainCoinPriceLabel.snp.bottom).offset(13)
         $0.leading.equalTo(self.mainCoinTitleLogoView.snp.leading)
         $0.trailing.equalTo(self.mainCoinKoreanTitleLabel.snp.trailing)
       }
@@ -188,21 +247,114 @@ extension HomeViewController {
       }
     }
   }
-  
-  func layout() {
-    layoutTopView()
-    layoutTitleImageView()
-    layoutSearchButton()
-    layoutMenuCollectionView()
-    layoutMainCointContainerView()
-    layoutMainCoinKoreanTitleLabel()
-    layoutMainCoinEnglishTitleLabel()
-    layoutMainCoinTitleLogoView()
-    layoutMainCoinPriceLabel()
-    layoutMainCoinStateContainerView()
-    layoutMainCoinStateIconView()
-    layoutMainCoinStateDegreeLabel()
-    layoutMainCoinStatePercentageLabel()
-    layoutMainCoinGraphView()
+  func layoutFavoriteTableHeaderInputViews() {
+    self.favoriteTableHeaderView.add(favoriteTitleLabel) {
+      $0.setLabel(text: "나의 관심 코인", textColor: .black, font: .notoSansKRBoldFont(fontSize: 16))
+      $0.snp.makeConstraints {
+        $0.leading.equalTo(self.favoriteTableHeaderView.snp.leading).offset(20)
+        $0.top.equalTo(self.favoriteTableHeaderView.snp.top)
+      }
+    }
+    self.favoriteTableHeaderView.add(favoriteAddButton) {
+      $0.setBackgroundImage(UIImage(named: "add"), for: .normal)
+      $0.snp.makeConstraints {
+        $0.trailing.equalTo(self.favoriteTableHeaderView.snp.trailing).offset(-20)
+        $0.centerY.equalTo(self.favoriteTitleLabel.snp.centerY)
+        $0.top.equalTo(self.favoriteTitleLabel.snp.top)
+        $0.width.equalTo(self.view.frame.width*54/375)
+      }
+    }
   }
+  func layoutFavoriteTableView() {
+    self.view.add(favoriteTableView) {
+      $0.backgroundColor = .white
+      $0.estimatedRowHeight = 1000
+      $0.rowHeight = UITableView.automaticDimension
+      $0.translatesAutoresizingMaskIntoConstraints = false
+      $0.separatorStyle = .none
+      $0.snp.makeConstraints {
+        $0.top.equalTo(self.mainCoinContainerView.snp.bottom).offset(16)
+        $0.leading.equalTo(self.view.snp.leading)
+        $0.trailing.equalTo(self.view.snp.trailing)
+        $0.bottom.equalTo(self.view.snp.bottom)
+      }
+    }
+  }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+extension HomeViewController: UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let width: CGFloat
+    switch indexPath.item {
+    case 1:
+      width = 45
+    case 2:
+      width = 60
+    default:
+      width = 30
+    }
+    return CGSize(width: width+self.view.frame.width*10/375, height: 30)
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return 20
+  }
+}
+// MARK: - UICollectionViewDataSource
+extension HomeViewController: UICollectionViewDataSource {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) ->
+  Int {
+    return self.menuTitles.count
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    guard let menuCell =
+            collectionView.dequeueReusableCell(
+              withReuseIdentifier: TopMenuCollectionViewCell.identifier,
+              for: indexPath)
+            as? TopMenuCollectionViewCell else { return UICollectionViewCell()}
+    menuCell.awakeFromNib()
+    menuCell.titleLabel.setLabel(text: self.menuTitles[indexPath.item],
+                                 textColor: .white,
+                                 font: .notoSansKRBoldFont(fontSize: 16))
+    if indexPath.item == HomeViewController.menuIndex {
+      menuCell.underLineView.isHidden = false
+    }
+    return menuCell
+  }
+}
+
+// MARK: - UITableViewDelegate
+extension HomeViewController: UITableViewDelegate {
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 250
+  }
+  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    let headerView = self.favoriteTableHeaderView
+    headerView.snp.makeConstraints {
+      $0.width.equalTo(self.view.frame.width)
+      $0.height.equalTo(self.view.frame.width*33/375)
+    }
+    self.layoutFavoriteTableHeaderInputViews()
+    return self.favoriteTableHeaderView
+  }
+
+}
+
+// MARK: - UITableViewDataSource
+extension HomeViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return self.coinModel.count
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    print("여기야여기")
+    guard let favoriteCell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifier, for: indexPath) as? FavoriteTableViewCell else { return UITableViewCell() }
+    print(favoriteCell)
+    favoriteCell.awakeFromNib()
+    favoriteCell.dataBind(coinLogoImageName: self.coinModel[indexPath.row].coinLogoImageName, coinEnglishTitle: self.coinModel[indexPath.row].coinEnglishTitle, coinKoreanTitle: self.coinModel[indexPath.row].coinKoreanTitle, coinPrice: self.coinModel[indexPath.row].coinPrice, riseOrDescent: self.coinModel[indexPath.row].riseOrDescent, degree: self.coinModel[indexPath.row].degree, percentage: self.coinModel[indexPath.row].percentage, graphImageName: self.coinModel[indexPath.row].graphImageName)
+    return favoriteCell
+  }
+  
+  
 }
