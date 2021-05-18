@@ -1,19 +1,19 @@
 {
   "images" : [
     {
-      "filename" : "bar.png",
+      "filename" : "underLine.png",
       "scale" : "1x",
       "idiom" : "universal"
     },
     {
       "idiom" : "universal",
-      "filename" : "bar@2x.png",
+      "filename" : "underLine@2x.png",
       "scale" : "2x"
     },
     {
-      "filename" : "bar@3x.png",
-      "scale" : "3x",
-      "idiom" : "universal"
+      "filename" : "underLine@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

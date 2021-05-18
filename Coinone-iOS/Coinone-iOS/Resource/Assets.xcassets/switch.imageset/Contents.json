@@ -1,19 +1,19 @@
 {
   "images" : [
     {
+      "filename" : "switch.png",
       "idiom" : "universal",
-      "scale" : "1x",
-      "filename" : "assetButton.png"
+      "scale" : "1x"
     },
     {
       "scale" : "2x",
       "idiom" : "universal",
-      "filename" : "assetButton@2x.png"
+      "filename" : "switch@2x.png"
     },
     {
-      "filename" : "assetButton@3x.png",
+      "idiom" : "universal",
       "scale" : "3x",
-      "idiom" : "universal"
+      "filename" : "switch@3x.png"
     }
   ],
   "info" : {
