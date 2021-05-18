@@ -21,6 +21,8 @@
 		CC272E712651872400637BCE /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6B2651872400637BCE /* NotoSansKR-Light.otf */; };
 		CC272E722651872400637BCE /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6C2651872400637BCE /* NotoSansKR-Black.otf */; };
 		CC272E732651872400637BCE /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6D2651872400637BCE /* NotoSansKR-Bold.otf */; };
+		CC770CF8265396CF004095A6 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC770CF7265396CF004095A6 /* UILabel+.swift */; };
+		CC770CFC265397BD004095A6 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC770CFB265397BD004095A6 /* UIFont+.swift */; };
 		CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */; };
 		CCA0ECC8264FA7A4001CC563 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA0ECC7264FA7A4001CC563 /* SceneDelegate.swift */; };
 		CCA0ECCD264FA7A4001CC563 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CCA0ECCB264FA7A4001CC563 /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		CC272E6B2651872400637BCE /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		CC272E6C2651872400637BCE /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
 		CC272E6D2651872400637BCE /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		CC770CF7265396CF004095A6 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
+		CC770CFB265397BD004095A6 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		CCA0ECC2264FA7A4001CC563 /* Coinone-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Coinone-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CCA0ECC7264FA7A4001CC563 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -192,6 +196,8 @@
 				CCAA9A2A264FACDD008E50BF /* UIColor+.swift */,
 				CCAA9A2D264FAEB9008E50BF /* CALayer+.swift */,
 				CCAA9A33264FAF68008E50BF /* UIView+.swift */,
+				CC770CF7265396CF004095A6 /* UILabel+.swift */,
+				CC770CFB265397BD004095A6 /* UIFont+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -347,9 +353,11 @@
 				CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */,
 				CC0E232D2652241D00B982A0 /* StockModel.swift in Sources */,
 				CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */,
+				CC770CF8265396CF004095A6 /* UILabel+.swift in Sources */,
 				CC0E232B265223FE00B982A0 /* StockTVC.swift in Sources */,
 				CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */,
 				CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */,
+				CC770CFC265397BD004095A6 /* UIFont+.swift in Sources */,
 				CC0E23272652232700B982A0 /* MyViewController.swift in Sources */,
 				CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */,
 				CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */,

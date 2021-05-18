@@ -16,10 +16,8 @@ class TabbarViewContorller: UITabBarController {
   }
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.view.backgroundColor = .clear
+    self.view.backgroundColor = .white
     self.selectedIndex = defaultIndex
-    self.tabBar.layer.borderWidth = 0.6
-//    self.tabBar.layer.borderColor = lineColor.cgColor
   }
 
 }
@@ -27,18 +25,19 @@ class TabbarViewContorller: UITabBarController {
 extension TabbarViewContorller {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    let firstTabController =  HomeViewController()
-    let secondTabController = TransactionViewController()
-    let viewControllers = [firstTabController, secondTabController]
+    let firstTabController =  MyViewController()
+    let secondTabController = GeoraesoVC()
+    let emptyTabController = HomeViewController()
+    let secondEmptyTabController = TransactionViewController()
+    let viewControllers = [firstTabController, secondTabController, emptyTabController, secondEmptyTabController]
     self.setViewControllers(viewControllers, animated: true)
 
     let tabBar: UITabBar = self.tabBar
     tabBar.backgroundColor = UIColor.clear
-    tabBar.barStyle = UIBarStyle.default
     tabBar.barTintColor = UIColor.white
     
-    let imageNames = ["tabHomeInact", "tabSearchInact", "tabCommunityInact", "tabMyInact"]
-    let imageSelectedNames = ["tabHomeAct", "tabSearchAct", "tabCommunityAct", "tabMyAct"]
+    let imageNames = ["homeButton", "assetButton", "plusButton", "moreButton"]
+    let imageSelectedNames = ["homeButton", "assetButton", "plusButton", "moreButton"]
 
     for (ind, value) in (tabBar.items?.enumerated())! {
       let tabBarItem: UITabBarItem = value as UITabBarItem
@@ -46,8 +45,7 @@ extension TabbarViewContorller {
       tabBarItem.image = UIImage(named: imageNames[ind])?.withRenderingMode(.alwaysOriginal)
       tabBarItem.selectedImage = UIImage(named: imageSelectedNames[ind])?.withRenderingMode(.alwaysOriginal)
       tabBarItem.accessibilityIdentifier = imageNames[ind]
-      tabBarItem.imageInsets.top = 15
-      tabBarItem.imageInsets.bottom = -15
+      tabBarItem.imageInsets.left = 4
     }
   }
 }
