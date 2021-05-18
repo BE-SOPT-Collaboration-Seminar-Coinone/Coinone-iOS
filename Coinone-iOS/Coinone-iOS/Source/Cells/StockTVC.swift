@@ -20,7 +20,7 @@ class StockTVC: UITableViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 14)
+        label.font = UIFont(name: "NotoSansKR-Bold", size: 14)
         label.textColor = .black
         
         return label
@@ -28,7 +28,7 @@ class StockTVC: UITableViewCell {
     
     private let subTitleLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 10)
+        label.font = UIFont(name: "NotoSansKR-Medium", size: 10)
         label.textColor = UIColor(red: 173.0 / 255.0, green: 179.0 / 255.0, blue: 186.0 / 255.0, alpha: 1.0)
         
         return label
@@ -36,7 +36,7 @@ class StockTVC: UITableViewCell {
     
     private let curValueLabel: UILabel = {
         let label = UILabel()
-        label.font = .boldSystemFont(ofSize: 14)
+        label.font = UIFont(name: "NotoSansKR-Bold", size: 14)
         label.textColor = UIColor(red: 23.0 / 255.0, green: 97.0 / 255.0, blue: 181.0 / 255.0, alpha: 1.0)
         
         return label
@@ -44,7 +44,7 @@ class StockTVC: UITableViewCell {
     
     private let rateLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 14)
         label.textColor = UIColor(red: 23.0 / 255.0, green: 97.0 / 255.0, blue: 181.0 / 255.0, alpha: 1.0)
         
         return label
@@ -52,7 +52,7 @@ class StockTVC: UITableViewCell {
     
     private let transPriceLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
+        label.font = UIFont(name: "NotoSansKR-Regular", size: 14)
         label.textColor = UIColor(red: 173.0 / 255.0, green: 179.0 / 255.0, blue: 186.0 / 255.0, alpha: 1.0)
         
         return label
