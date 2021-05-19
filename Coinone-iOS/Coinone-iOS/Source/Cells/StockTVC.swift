@@ -10,10 +10,18 @@ import SnapKit
 class StockTVC: UITableViewCell {
     static let identifier = "StockTVC"
     
+    private lazy var backView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.applyShadow()
+        
+        return view
+    }()
+    
     private lazy var logoImage: UIImageView = {
         let imageView = UIImageView()
         let image = UIImage()
-        imageView.image = UIImage(named: "xrp1")
+        imageView.image = UIImage(named: "coinLogo")
         
         return imageView
     }()
@@ -82,51 +90,59 @@ class StockTVC: UITableViewCell {
 
 extension StockTVC {
     func setConfigure() {
-        contentView.addSubview(logoImage)
-        contentView.addSubview(titleLabel)
-        contentView.addSubview(subTitleLabel)
-        contentView.addSubview(curValueLabel)
-        contentView.addSubview(rateLabel)
-        contentView.addSubview(transPriceLabel)
+        contentView.addSubview(backView)
+        
+        backView.addSubview(logoImage)
+        backView.addSubview(titleLabel)
+        backView.addSubview(subTitleLabel)
+        backView.addSubview(curValueLabel)
+        backView.addSubview(rateLabel)
+        backView.addSubview(transPriceLabel)
         
         setConstraints()
     }
     
     func setConstraints() {
+        backView.snp.makeConstraints { make in
+            make.width.equalTo(335)
+            make.height.equalTo(60)
+            make.top.equalTo(contentView).inset(12)
+            make.leading.trailing.equalTo(contentView).inset(20)
+        }
         
         logoImage.snp.makeConstraints { make in
             make.width.equalTo(12)
             make.height.equalTo(12)
-            make.top.equalTo(contentView.snp.top).inset(19)
-            make.leading.equalTo(contentView.snp.leading).inset(30)
+            make.top.equalTo(backView.snp.top).inset(18)
+            make.leading.equalTo(backView.snp.leading).inset(13)
         }
         
         titleLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).inset(14)
-            make.leading.equalTo(contentView.snp.leading).inset(51)
+            make.top.equalTo(backView.snp.top).inset(14)
+            make.leading.equalTo(backView.snp.leading).inset(35)
         }
         
         subTitleLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).inset(34)
-            make.leading.equalTo(contentView.snp.leading).inset(51)
+            make.top.equalTo(backView.snp.top).inset(34)
+            make.leading.equalTo(backView.snp.leading).inset(35)
         }
         
         curValueLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).inset(22)
-            make.leading.equalTo(contentView.snp.leading).inset(170)
-            make.bottom.equalTo(contentView.snp.bottom).inset(21)
+            make.top.equalTo(backView.snp.top).inset(22)
+            make.leading.equalTo(backView.snp.leading).inset(150)
+            make.height.equalTo(17)
         }
         
         rateLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).inset(22)
-            make.leading.equalTo(contentView.snp.leading).inset(231)
-            make.bottom.equalTo(contentView.snp.bottom).inset(21)
+            make.top.equalTo(backView.snp.top).inset(22)
+            make.leading.equalTo(backView.snp.leading).inset(221)
+            make.height.equalTo(17)
         }
         
         transPriceLabel.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).inset(22)
-            make.leading.equalTo(contentView.snp.leading).inset(299)
-            make.bottom.equalTo(contentView.snp.bottom).inset(21)
+            make.top.equalTo(backView.snp.top).inset(22)
+            make.leading.equalTo(backView.snp.leading).inset(279)
+            make.height.equalTo(17)
         }
     }
 }

@@ -300,6 +300,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     return 20
   }
 }
+
 // MARK: - UICollectionViewDataSource
 extension HomeViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) ->

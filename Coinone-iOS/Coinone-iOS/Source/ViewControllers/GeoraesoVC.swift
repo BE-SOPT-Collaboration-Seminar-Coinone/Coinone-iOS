@@ -19,13 +19,13 @@ class GeoraesoVC: UIViewController {
     
     private lazy var logoImage: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = UIImage(named: "coinoneGuide41")
+        imageView.image = UIImage(named: "logoOnwhite")
         return imageView
     }()
     
     private lazy var searchButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "modeLight"), for: .normal)
+        button.setImage(UIImage(named: "searchOnwhite"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(pointSize: 20,
                                                      weight: .light,
                                                      scale: .large),
@@ -96,7 +96,7 @@ class GeoraesoVC: UIViewController {
     }()
     private lazy var cFilterButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "group423"), for: .normal)
+        button.setImage(UIImage(named: "switch"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(pointSize: 20,
                                                      weight: .light,
                                                      scale: .large),
@@ -133,7 +133,7 @@ class GeoraesoVC: UIViewController {
     }()
     private lazy var vFilterButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "group423"), for: .normal)
+        button.setImage(UIImage(named: "switch"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(pointSize: 20,
                                                      weight: .light,
                                                      scale: .large),
@@ -170,7 +170,7 @@ class GeoraesoVC: UIViewController {
     }()
     private lazy var rFilterButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "group423"), for: .normal)
+        button.setImage(UIImage(named: "switch"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(pointSize: 20,
                                                      weight: .light,
                                                      scale: .large),
@@ -207,7 +207,7 @@ class GeoraesoVC: UIViewController {
     }()
     private lazy var pFilterButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "group411"), for: .normal)
+        button.setImage(UIImage(named: "switch"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(pointSize: 20,
                                                      weight: .light,
                                                      scale: .large),
@@ -266,11 +266,12 @@ class GeoraesoVC: UIViewController {
     }()
     private let foldListButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(named: "modeLightDirectionPrevious"), for: .normal)
+        button.setImage(UIImage(systemName: "chevron.up"), for: .normal)
         button.setPreferredSymbolConfiguration(.init(pointSize: 20,
                                                              weight: .light,
                                                              scale: .large),
                                                        forImageIn: .normal)
+        button.tintColor = .textGray
         button.addTarget(self, action: #selector(foldList(_:)), for: .touchUpInside)
         
         return button
@@ -425,11 +426,11 @@ extension GeoraesoVC: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        30
+        20
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 72
     }
     
     @objc func foldList(_ sender: UIButton) {
@@ -450,12 +451,16 @@ extension GeoraesoVC: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: StockTVC.identifier) as? StockTVC else {
             return UITableViewCell()
         }
-        cell.contentView.backgroundColor = .white
+        cell.contentView.backgroundColor = .tableViewGray
         
         let data = stockList[indexPath.row]
         cell.setData(logoPath: data.title, title: data.title, subTitle: data.subTitle, curValue: data.curValue, rate: data.rate, transPrice: data.transPrice)
-        cell.layer.applyShadow()
         return cell
     }
-    
+}
+
+extension UITableView {
+    func removeExtraCellLines() {
+        tableFooterView = UIView(frame: .zero)
+    }
 }
