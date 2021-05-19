@@ -1,18 +1,18 @@
 {
   "images" : [
     {
+      "filename" : "searchOncolor.png",
       "scale" : "1x",
-      "idiom" : "universal",
-      "filename" : "searchOncolor.png"
-    },
-    {
-      "filename" : "searchOncolor@2x.png",
-      "scale" : "2x",
       "idiom" : "universal"
     },
     {
-      "filename" : "searchOncolor@3x.png",
+      "idiom" : "universal",
+      "filename" : "searchOncolor@2x.png",
+      "scale" : "2x"
+    },
+    {
       "scale" : "3x",
+      "filename" : "searchOncolor@3x.png",
       "idiom" : "universal"
     }
   ],

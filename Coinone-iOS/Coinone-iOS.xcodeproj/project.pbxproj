@@ -12,6 +12,7 @@
 		CC0E232B265223FE00B982A0 /* StockTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0E232A265223FE00B982A0 /* StockTVC.swift */; };
 		CC0E232D2652241D00B982A0 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0E232C2652241D00B982A0 /* StockModel.swift */; };
 		CC0E232F2652244F00B982A0 /* GeoraesoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0E232E2652244F00B982A0 /* GeoraesoVC.swift */; };
+		CC26A39F2655075600C09C0D /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC26A39E2655075600C09C0D /* PopupViewController.swift */; };
 		CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E5A26517E6000637BCE /* TabbarViewController.swift */; };
 		CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E6126517F0500637BCE /* HomeViewController.swift */; };
 		CC272E6526517F1000637BCE /* TransactionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC272E6426517F1000637BCE /* TransactionViewController.swift */; };
@@ -21,7 +22,7 @@
 		CC272E712651872400637BCE /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6B2651872400637BCE /* NotoSansKR-Light.otf */; };
 		CC272E722651872400637BCE /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6C2651872400637BCE /* NotoSansKR-Black.otf */; };
 		CC272E732651872400637BCE /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6D2651872400637BCE /* NotoSansKR-Bold.otf */; };
-		CC6608BE265450B0004DD7D2 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6608BD265450B0004DD7D2 /* PopupViewController.swift */; };
+		CC6608BE265450B0004DD7D2 /* PopupHsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6608BD265450B0004DD7D2 /* PopupHsViewController.swift */; };
 		CC770CF8265396CF004095A6 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC770CF7265396CF004095A6 /* UILabel+.swift */; };
 		CC770CFC265397BD004095A6 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC770CFB265397BD004095A6 /* UIFont+.swift */; };
 		CC770CFE26540903004095A6 /* TopMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC770CFD26540902004095A6 /* TopMenuCollectionViewCell.swift */; };
@@ -41,6 +42,9 @@
 		CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA9A2A264FACDD008E50BF /* UIColor+.swift */; };
 		CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA9A2D264FAEB9008E50BF /* CALayer+.swift */; };
 		CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA9A33264FAF68008E50BF /* UIView+.swift */; };
+		E8EC22B2265445210027E8A8 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC22B1265445210027E8A8 /* MyTableViewCell.swift */; };
+		E8EC22B6265448200027E8A8 /* MyListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC22B5265448200027E8A8 /* MyListDataModel.swift */; };
+		E8EC22B92654BDD00027E8A8 /* MyPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8EC22B82654BDD00027E8A8 /* MyPopup.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,7 @@
 		CC0E232A265223FE00B982A0 /* StockTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTVC.swift; sourceTree = "<group>"; };
 		CC0E232C2652241D00B982A0 /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
 		CC0E232E2652244F00B982A0 /* GeoraesoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeoraesoVC.swift; sourceTree = "<group>"; };
+		CC26A39E2655075600C09C0D /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		CC272E5A26517E6000637BCE /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		CC272E6126517F0500637BCE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CC272E6426517F1000637BCE /* TransactionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +64,7 @@
 		CC272E6B2651872400637BCE /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		CC272E6C2651872400637BCE /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
 		CC272E6D2651872400637BCE /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
-		CC6608BD265450B0004DD7D2 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		CC6608BD265450B0004DD7D2 /* PopupHsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupHsViewController.swift; sourceTree = "<group>"; };
 		CC770CF7265396CF004095A6 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		CC770CFB265397BD004095A6 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		CC770CFD26540902004095A6 /* TopMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopMenuCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -80,6 +85,9 @@
 		CCAA9A2D264FAEB9008E50BF /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		CCAA9A33264FAF68008E50BF /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		E0AB500236EDF60103A408AE /* Pods_Coinone_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coinone_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8EC22B1265445210027E8A8 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		E8EC22B5265448200027E8A8 /* MyListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListDataModel.swift; sourceTree = "<group>"; };
+		E8EC22B82654BDD00027E8A8 /* MyPopup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPopup.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,7 @@
 				CC0E232A265223FE00B982A0 /* StockTVC.swift */,
 				CC770CFD26540902004095A6 /* TopMenuCollectionViewCell.swift */,
 				CC770D02265426FA004095A6 /* FavoriteTableViewCell.swift */,
+				E8EC22B1265445210027E8A8 /* MyTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -111,6 +120,7 @@
 			children = (
 				CC0E232C2652241D00B982A0 /* StockModel.swift */,
 				CC770D0426542DDF004095A6 /* CoinModel.swift */,
+				E8EC22B5265448200027E8A8 /* MyListDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,7 +207,8 @@
 				CC272E6426517F1000637BCE /* TransactionViewController.swift */,
 				CC0E23262652232700B982A0 /* MyViewController.swift */,
 				CC0E232E2652244F00B982A0 /* GeoraesoVC.swift */,
-				CC6608BD265450B0004DD7D2 /* PopupViewController.swift */,
+				CC6608BD265450B0004DD7D2 /* PopupHsViewController.swift */,
+				CC26A39E2655075600C09C0D /* PopupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -209,6 +220,7 @@
 				CCAA9A20264FAB8A008E50BF /* Georaeso.storyboard */,
 				CCAA9A23264FAB95008E50BF /* Popup.storyboard */,
 				CCAA9A26264FABB0008E50BF /* My.storyboard */,
+				E8EC22B82654BDD00027E8A8 /* MyPopup.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -311,6 +323,7 @@
 			files = (
 				CCAA9A27264FABB0008E50BF /* My.storyboard in Resources */,
 				CC272E722651872400637BCE /* NotoSansKR-Black.otf in Resources */,
+				E8EC22B92654BDD00027E8A8 /* MyPopup.storyboard in Resources */,
 				CCA0ECD2264FA7A6001CC563 /* LaunchScreen.storyboard in Resources */,
 				CCA0ECCF264FA7A6001CC563 /* Assets.xcassets in Resources */,
 				CC272E702651872400637BCE /* NotoSansKR-Medium.otf in Resources */,
@@ -374,7 +387,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */,
-				CC6608BE265450B0004DD7D2 /* PopupViewController.swift in Sources */,
+				CC6608BE265450B0004DD7D2 /* PopupHsViewController.swift in Sources */,
 				CC0E232D2652241D00B982A0 /* StockModel.swift in Sources */,
 				CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */,
 				CC770CF8265396CF004095A6 /* UILabel+.swift in Sources */,
@@ -382,8 +395,11 @@
 				CC770CFE26540903004095A6 /* TopMenuCollectionViewCell.swift in Sources */,
 				CC770D03265426FA004095A6 /* FavoriteTableViewCell.swift in Sources */,
 				CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */,
+				E8EC22B6265448200027E8A8 /* MyListDataModel.swift in Sources */,
 				CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */,
+				CC26A39F2655075600C09C0D /* PopupViewController.swift in Sources */,
 				CC770CFC265397BD004095A6 /* UIFont+.swift in Sources */,
+				E8EC22B2265445210027E8A8 /* MyTableViewCell.swift in Sources */,
 				CC0E23272652232700B982A0 /* MyViewController.swift in Sources */,
 				CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */,
 				CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */,

@@ -24,7 +24,7 @@ class HomeViewController: UIViewController {
   
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    let popupViewController = PopupViewController()
+    let popupViewController = PopupHsViewController()
     popupViewController.modalPresentationStyle = .overFullScreen
     self.present(popupViewController, animated: false, completion: nil)
   }
@@ -118,7 +118,7 @@ extension HomeViewController {
   }
   func layoutTitleImageView() {
     self.topView.add(titleImageView) {
-      $0.image = UIImage(named: "titleImage")
+      $0.image = UIImage(named: "logoOncolor")
       $0.snp.makeConstraints {
         $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).offset(9)
         $0.leading.equalTo(self.topView.snp.leading).offset(20)
@@ -129,7 +129,7 @@ extension HomeViewController {
   }
   func layoutSearchButton() {
     self.topView.add(searchButton) {
-      $0.setImage(UIImage(named:"searchIcon"), for: .normal)
+      $0.setImage(UIImage(named:"searchOnwhite"), for: .normal)
       $0.snp.makeConstraints {
         $0.top.equalTo(self.titleImageView.snp.top)
         $0.trailing.equalTo(self.topView.snp.trailing).offset(-20)

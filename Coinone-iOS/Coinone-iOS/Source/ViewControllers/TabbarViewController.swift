@@ -25,7 +25,9 @@ class TabbarViewContorller: UITabBarController {
 extension TabbarViewContorller {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
-    let firstTabController =  MyViewController()
+    let storyBoard = UIStoryboard(name: "My", bundle: nil)
+    guard let firstTabController = storyBoard.instantiateViewController(identifier: "MyViewController") as? MyViewController else { return }
+    
     let secondTabController = GeoraesoVC()
     let emptyTabController = HomeViewController()
     let secondEmptyTabController = TransactionViewController()

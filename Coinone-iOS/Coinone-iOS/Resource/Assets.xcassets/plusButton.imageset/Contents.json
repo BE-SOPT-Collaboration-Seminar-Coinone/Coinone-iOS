@@ -1,8 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "plusButton1.png",
       "idiom" : "universal",
+      "filename" : "plusButton1.png",
       "scale" : "1x"
     },
     {

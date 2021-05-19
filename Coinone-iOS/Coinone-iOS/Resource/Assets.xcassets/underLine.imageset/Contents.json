@@ -1,18 +1,18 @@
 {
   "images" : [
     {
+      "idiom" : "universal",
       "filename" : "underLine.png",
-      "scale" : "1x",
-      "idiom" : "universal"
+      "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "underLine@2x.png",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "underLine@2x.png"
     },
     {
+      "idiom" : "universal",
       "filename" : "underLine@3x.png",
-      "idiom" : "universal",
       "scale" : "3x"
     }
   ],

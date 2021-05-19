@@ -2,13 +2,13 @@
   "images" : [
     {
       "scale" : "1x",
-      "idiom" : "universal",
-      "filename" : "moreButton1.png"
+      "filename" : "moreButton1.png",
+      "idiom" : "universal"
     },
     {
+      "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "moreButton1@2x.png",
-      "idiom" : "universal"
+      "filename" : "moreButton1@2x.png"
     },
     {
       "filename" : "moreButton1@3x.png",
