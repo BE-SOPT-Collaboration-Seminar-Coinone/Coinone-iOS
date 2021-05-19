@@ -20,6 +20,10 @@ class FavoriteTableViewCell: UITableViewCell {
     layout()
   }
   
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    self.selectionStyle = .none
+  }
+  
   let coinTitleContainerView = UIView()
   let coinLogoView = UIImageView()
   let coinTitleEnglishLabel = UILabel()
