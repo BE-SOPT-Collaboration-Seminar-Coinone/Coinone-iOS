@@ -137,7 +137,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yHV-Fc-3PO">
                                 <rect key="frame" x="338.66666666666669" y="53" width="16" height="18"/>
-                                <state key="normal" backgroundImage="searchIcon"/>
+                                <state key="normal" backgroundImage="searchOncolor"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qyr-EY-d98">
                                 <rect key="frame" x="20" y="84.333333333333329" width="30" height="23"/>
@@ -357,7 +357,7 @@
         <image name="graph" width="310" height="67"/>
         <image name="logoOncolor" width="98" height="17.666666030883789"/>
         <image name="rise" width="6" height="6"/>
-        <image name="searchIcon" width="15.666666984558105" height="16"/>
+        <image name="searchOncolor" width="15.666666984558105" height="16"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
