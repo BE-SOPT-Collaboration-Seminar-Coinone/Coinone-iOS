@@ -34,6 +34,10 @@
 		CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA9A2A264FACDD008E50BF /* UIColor+.swift */; };
 		CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA9A2D264FAEB9008E50BF /* CALayer+.swift */; };
 		CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCAA9A33264FAF68008E50BF /* UIView+.swift */; };
+		E8EC22B2265445210027E8A8 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC22B1265445210027E8A8 /* MyTableViewCell.swift */; };
+		E8EC22B6265448200027E8A8 /* MyListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC22B5265448200027E8A8 /* MyListDataModel.swift */; };
+		E8EC22B92654BDD00027E8A8 /* MyPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8EC22B82654BDD00027E8A8 /* MyPopup.storyboard */; };
+		E8EC22BC2654BDEE0027E8A8 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC22BB2654BDEE0027E8A8 /* PopupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +70,10 @@
 		CCAA9A2D264FAEB9008E50BF /* CALayer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+.swift"; sourceTree = "<group>"; };
 		CCAA9A33264FAF68008E50BF /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		E0AB500236EDF60103A408AE /* Pods_Coinone_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Coinone_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8EC22B1265445210027E8A8 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		E8EC22B5265448200027E8A8 /* MyListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListDataModel.swift; sourceTree = "<group>"; };
+		E8EC22B82654BDD00027E8A8 /* MyPopup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPopup.storyboard; sourceTree = "<group>"; };
+		E8EC22BB2654BDEE0027E8A8 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0E232A265223FE00B982A0 /* StockTVC.swift */,
+				E8EC22B1265445210027E8A8 /* MyTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -94,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				CC0E232C2652241D00B982A0 /* StockModel.swift */,
+				E8EC22B5265448200027E8A8 /* MyListDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -171,6 +181,7 @@
 				CC272E6426517F1000637BCE /* TransactionViewController.swift */,
 				CC0E23262652232700B982A0 /* MyViewController.swift */,
 				CC0E232E2652244F00B982A0 /* GeoraesoVC.swift */,
+				E8EC22BB2654BDEE0027E8A8 /* PopupViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -182,6 +193,7 @@
 				CCAA9A20264FAB8A008E50BF /* Georaeso.storyboard */,
 				CCAA9A23264FAB95008E50BF /* Popup.storyboard */,
 				CCAA9A26264FABB0008E50BF /* My.storyboard */,
+				E8EC22B82654BDD00027E8A8 /* MyPopup.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -282,6 +294,7 @@
 			files = (
 				CCAA9A27264FABB0008E50BF /* My.storyboard in Resources */,
 				CC272E722651872400637BCE /* NotoSansKR-Black.otf in Resources */,
+				E8EC22B92654BDD00027E8A8 /* MyPopup.storyboard in Resources */,
 				CCA0ECD2264FA7A6001CC563 /* LaunchScreen.storyboard in Resources */,
 				CCA0ECCF264FA7A6001CC563 /* Assets.xcassets in Resources */,
 				CC272E702651872400637BCE /* NotoSansKR-Medium.otf in Resources */,
@@ -349,7 +362,10 @@
 				CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */,
 				CC0E232B265223FE00B982A0 /* StockTVC.swift in Sources */,
 				CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */,
+				E8EC22BC2654BDEE0027E8A8 /* PopupViewController.swift in Sources */,
+				E8EC22B6265448200027E8A8 /* MyListDataModel.swift in Sources */,
 				CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */,
+				E8EC22B2265445210027E8A8 /* MyTableViewCell.swift in Sources */,
 				CC0E23272652232700B982A0 /* MyViewController.swift in Sources */,
 				CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */,
 				CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */,
