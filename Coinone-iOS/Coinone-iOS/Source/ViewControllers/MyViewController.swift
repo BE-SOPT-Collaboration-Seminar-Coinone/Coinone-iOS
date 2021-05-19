@@ -11,10 +11,22 @@ class MyViewController: UIViewController {
   @IBOutlet weak var underlineview: UIView!
   @IBOutlet weak var myTableView: UITableView!
   @IBOutlet weak var chartView: UIView!
-  
+  @IBAction func gaeraesobuttonclicked(_ sender: Any) {
+    
+//    거래소 버튼 누르면 거래소로 넘어가게 //
+    
+        let storyboard = UIStoryboard(name:"Georaeso", bundle: nil)
+        guard let nextVC = storyboard.instantiateViewController(identifier: "GeoraesoVC") as? GeoraesoVC else {return}
+        nextVC.modalTransitionStyle = .crossDissolve
+        nextVC.modalPresentationStyle = .fullScreen
+        
+        self.present(nextVC, animated: true, completion: nil)
+    }
+    
   var myList : [MyListDataModel] = []
+
+//    Popup 창이 계속해서 반복해서 나오는 걸 탈출시키기 위해서 //
   var popupIsShown : Bool = false
-  
   override func viewDidAppear(_ animated: Bool) {
     
     
@@ -45,7 +57,7 @@ class MyViewController: UIViewController {
     self.myTableView.dataSource = self
     self.myTableView.separatorStyle = .none
     
-
+//    chartView 뒤의 쉐도우 적용
     self.chartView.layer.applyShadow(color: .black, alpha: 0.12, x: 0, y: 0, blur: 8)
     
     
@@ -54,7 +66,7 @@ class MyViewController: UIViewController {
   
   
   
-  
+//  MyList 에 들어가는 Data //
   func setMyList()
   {
     myList.append(contentsOf: [

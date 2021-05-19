@@ -43,11 +43,11 @@ class MyTableViewCell: UITableViewCell {
                      GraphImage : String
                      )
         {
+        
+//        불러오고 싶은 이미지가 여러개 인 경우 if let 구문을 여러번 사용해서 받아온다 //
             if let
                 image = UIImage(named: logoImage)
             
-            
-           
             {
                 LogoImage.image = image
             
