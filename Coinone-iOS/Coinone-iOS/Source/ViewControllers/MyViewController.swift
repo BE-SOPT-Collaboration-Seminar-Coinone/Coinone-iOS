@@ -66,7 +66,7 @@ class MyViewController: UIViewController {
   
   
   
-//  MyList 에 들어가는 Data //
+//  MyList 에 들어가는 Data ///
   func setMyList()
   {
     myList.append(contentsOf: [
