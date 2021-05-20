@@ -81,6 +81,7 @@ class HomeViewController: UIViewController {
                                           graphImageName: "graph")]
 }
 
+
 // MARK: - Extensions
 extension HomeViewController {
   // MARK: - Helpers
@@ -339,7 +340,7 @@ extension HomeViewController: UITableViewDelegate {
     self.layoutFavoriteTableHeaderInputViews()
     return self.favoriteTableHeaderView
   }
-
+  
 }
 
 // MARK: - UITableViewDataSource

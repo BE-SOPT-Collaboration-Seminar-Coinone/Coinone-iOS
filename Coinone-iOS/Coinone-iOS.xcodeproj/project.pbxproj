@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		06A1A45591145692DA4F18C7 /* Pods_Coinone_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0AB500236EDF60103A408AE /* Pods_Coinone_iOS.framework */; };
+		CC0A1A9726564240000B65B9 /* FilterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A1A9626564240000B65B9 /* FilterCollectionViewCell.swift */; };
+		CC0A1A992656425A000B65B9 /* CoinListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A1A982656425A000B65B9 /* CoinListTableViewCell.swift */; };
+		CC0A1A9C265642E9000B65B9 /* TitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A1A9B265642E9000B65B9 /* TitleCollectionReusableView.swift */; };
+		CC0A1A9E2656434B000B65B9 /* CoinListCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A1A9D2656434B000B65B9 /* CoinListCollectionReusableView.swift */; };
+		CC0A1AA026564FDA000B65B9 /* CoinListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0A1A9F26564FDA000B65B9 /* CoinListModel.swift */; };
 		CC0E23272652232700B982A0 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0E23262652232700B982A0 /* MyViewController.swift */; };
 		CC0E232B265223FE00B982A0 /* StockTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0E232A265223FE00B982A0 /* StockTVC.swift */; };
 		CC0E232D2652241D00B982A0 /* StockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0E232C2652241D00B982A0 /* StockModel.swift */; };
@@ -50,6 +55,11 @@
 /* Begin PBXFileReference section */
 		3E2F6097EABAAACC664AB52A /* Pods-Coinone-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coinone-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Coinone-iOS/Pods-Coinone-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		4BA5E0330054E48E147B52CA /* Pods-Coinone-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Coinone-iOS.release.xcconfig"; path = "Target Support Files/Pods-Coinone-iOS/Pods-Coinone-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		CC0A1A9626564240000B65B9 /* FilterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCollectionViewCell.swift; sourceTree = "<group>"; };
+		CC0A1A982656425A000B65B9 /* CoinListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListTableViewCell.swift; sourceTree = "<group>"; };
+		CC0A1A9B265642E9000B65B9 /* TitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionReusableView.swift; sourceTree = "<group>"; };
+		CC0A1A9D2656434B000B65B9 /* CoinListCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListCollectionReusableView.swift; sourceTree = "<group>"; };
+		CC0A1A9F26564FDA000B65B9 /* CoinListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinListModel.swift; sourceTree = "<group>"; };
 		CC0E23262652232700B982A0 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		CC0E232A265223FE00B982A0 /* StockTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockTVC.swift; sourceTree = "<group>"; };
 		CC0E232C2652241D00B982A0 /* StockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockModel.swift; sourceTree = "<group>"; };
@@ -104,6 +114,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CC0A1A9A265642B6000B65B9 /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				CC0A1A9B265642E9000B65B9 /* TitleCollectionReusableView.swift */,
+				CC0A1A9D2656434B000B65B9 /* CoinListCollectionReusableView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
 		CC0E2328265223B000B982A0 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -111,6 +130,8 @@
 				CC770CFD26540902004095A6 /* TopMenuCollectionViewCell.swift */,
 				CC770D02265426FA004095A6 /* FavoriteTableViewCell.swift */,
 				E8EC22B1265445210027E8A8 /* MyTableViewCell.swift */,
+				CC0A1A9626564240000B65B9 /* FilterCollectionViewCell.swift */,
+				CC0A1A982656425A000B65B9 /* CoinListTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -121,6 +142,7 @@
 				CC0E232C2652241D00B982A0 /* StockModel.swift */,
 				CC770D0426542DDF004095A6 /* CoinModel.swift */,
 				E8EC22B5265448200027E8A8 /* MyListDataModel.swift */,
+				CC0A1A9F26564FDA000B65B9 /* CoinListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -177,6 +199,7 @@
 		CCAA9A1A264FAA0C008E50BF /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CC0A1A9A265642B6000B65B9 /* ReusableViews */,
 				CC0E2329265223B800B982A0 /* Models */,
 				CC0E2328265223B000B982A0 /* Cells */,
 				CCAA9A1E264FAA6C008E50BF /* ViewControllers */,
@@ -386,12 +409,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC0A1A9C265642E9000B65B9 /* TitleCollectionReusableView.swift in Sources */,
 				CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */,
 				CC6608BE265450B0004DD7D2 /* PopupHsViewController.swift in Sources */,
 				CC0E232D2652241D00B982A0 /* StockModel.swift in Sources */,
 				CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */,
 				CC770CF8265396CF004095A6 /* UILabel+.swift in Sources */,
 				CC0E232B265223FE00B982A0 /* StockTVC.swift in Sources */,
+				CC0A1A992656425A000B65B9 /* CoinListTableViewCell.swift in Sources */,
 				CC770CFE26540903004095A6 /* TopMenuCollectionViewCell.swift in Sources */,
 				CC770D03265426FA004095A6 /* FavoriteTableViewCell.swift in Sources */,
 				CC272E5B26517E6000637BCE /* TabbarViewController.swift in Sources */,
@@ -399,10 +424,13 @@
 				CCA0ECC6264FA7A4001CC563 /* AppDelegate.swift in Sources */,
 				CC26A39F2655075600C09C0D /* PopupViewController.swift in Sources */,
 				CC770CFC265397BD004095A6 /* UIFont+.swift in Sources */,
+				CC0A1AA026564FDA000B65B9 /* CoinListModel.swift in Sources */,
+				CC0A1A9726564240000B65B9 /* FilterCollectionViewCell.swift in Sources */,
 				E8EC22B2265445210027E8A8 /* MyTableViewCell.swift in Sources */,
 				CC0E23272652232700B982A0 /* MyViewController.swift in Sources */,
 				CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */,
 				CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */,
+				CC0A1A9E2656434B000B65B9 /* CoinListCollectionReusableView.swift in Sources */,
 				CC0E232F2652244F00B982A0 /* GeoraesoVC.swift in Sources */,
 				CC770D0126540943004095A6 /* Identifiable.swift in Sources */,
 				CCA0ECC8264FA7A4001CC563 /* SceneDelegate.swift in Sources */,
