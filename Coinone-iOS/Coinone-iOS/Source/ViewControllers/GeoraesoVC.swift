@@ -212,7 +212,6 @@ class GeoraesoVC: UIViewController {
                                                      weight: .light,
                                                      scale: .large),
                                                forImageIn: .normal)
-        button.addTarget(self, action: #selector(touchUpFilterButton), for: .touchUpInside)
         
         return button
     }()
@@ -408,15 +407,6 @@ extension GeoraesoVC {
         }
     }
     
-}
-
-// MARK: - Action
-extension GeoraesoVC {
-    @objc func touchUpFilterButton() {
-        print("touchUp transPrice Filter Button")
-        self.stockList = self.stockList.sorted(by: { $0.transPrice > $1.transPrice })
-        self.tableView.reloadData()
-    }
 }
 
 // MARK: - TableViewDelegate
