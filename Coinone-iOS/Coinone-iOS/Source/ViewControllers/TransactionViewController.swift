@@ -18,6 +18,12 @@ class TransactionViewController: UIViewController {
     layout()
     self.contentCollectionView.delegate = self
     self.contentCollectionView.dataSource = self
+    self.hidesBottomBarWhenPushed = false
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.hidesBottomBarWhenPushed = false
+    self.tabBarController?.tabBar.isHidden = false
   }
   
   // MARK: - Components
@@ -55,6 +61,10 @@ extension TransactionViewController {
         $0.edges.equalToSuperview()
       }
     }
+  }
+  func setTabbar() {
+    let tabController = TabbarViewContorller()
+    tabController.addChild(self)
   }
 }
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -145,6 +155,15 @@ extension TransactionViewController: UICollectionViewDataSource {
       }
       topMenuCell.titleLabel.setLabel(text: self.menuTitles[indexPath.item], textColor: .textGray, font: .notoSansKRBoldFont(fontSize: 16))
       topMenuCell.awakeFromNib()
+      if indexPath.item == HomeViewController.menuIndex {
+        topMenuCell.underLineView.isHidden = false
+        topMenuCell.underLineView.backgroundColor = .black
+        topMenuCell.titleLabel.textColor = .black
+      }
+      else {
+        topMenuCell.underLineView.isHidden = true
+        topMenuCell.titleLabel.textColor = .textGray
+      }
       return topMenuCell
     }
     else if indexPath.section == 1 {
@@ -181,5 +200,14 @@ extension TransactionViewController: UICollectionViewDataSource {
     }
     return reusableView
   }
-  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    if indexPath.section == 0 {
+      if indexPath.item == 0 {
+        self.tabBarController?.selectedIndex = 2
+        HomeViewController.menuIndex = 2
+        self.tabBarController?.reloadInputViews()
+        self.reloadInputViews()
+      }
+    }
+  }
 }

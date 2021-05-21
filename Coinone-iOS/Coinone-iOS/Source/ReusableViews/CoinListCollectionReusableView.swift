@@ -36,7 +36,7 @@ class CoinListCollectionReusableView: UICollectionReusableView {
                                                   coinEnglishTitle: "XRP",
                                                   coinKoreanTitle: "리플",
                                                   coinCurrentPrice: 1625,
-                                                  riseOrDescent: "-",
+                                                  riseOrDescent: "+",
                                                   percentage: 0.37,
                                                   coinTotalPrice: 2059)]
 }

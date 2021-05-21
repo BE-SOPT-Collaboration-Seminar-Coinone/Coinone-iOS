@@ -22,12 +22,18 @@ class HomeViewController: UIViewController {
     self.favoriteTableView.dataSource = self
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    self.hidesBottomBarWhenPushed = false
+    self.tabBarController?.tabBar.isHidden = false
+  }
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     let popupViewController = PopupHsViewController()
     popupViewController.modalPresentationStyle = .overFullScreen
     self.present(popupViewController, animated: false, completion: nil)
   }
+
   
   // MARK: - Components
   static var menuIndex = 0
@@ -141,6 +147,7 @@ extension HomeViewController {
   func layoutMenuCollectionView() {
     self.topView.add(menuCollectionView) {
       $0.backgroundColor = .clear
+      $0.isUserInteractionEnabled = true
       $0.snp.makeConstraints {
         $0.top.equalTo(self.titleImageView.snp.bottom).offset(13.6)
         $0.width.equalTo(self.view.frame.height*244/375)
@@ -324,6 +331,15 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     return menuCell
   }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    if indexPath.item == 1 {
+      self.tabBarController?.selectedIndex = 3
+      HomeViewController.menuIndex = 1
+      self.tabBarController?.reloadInputViews()
+      self.reloadInputViews()
+    }
+  }
 }
 
 // MARK: - UITableViewDelegate
@@ -350,7 +366,6 @@ extension HomeViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    print("여기야여기")
     guard let favoriteCell = tableView.dequeueReusableCell(withIdentifier: FavoriteTableViewCell.identifier, for: indexPath) as? FavoriteTableViewCell else { return UITableViewCell() }
     print(favoriteCell)
     favoriteCell.awakeFromNib()
