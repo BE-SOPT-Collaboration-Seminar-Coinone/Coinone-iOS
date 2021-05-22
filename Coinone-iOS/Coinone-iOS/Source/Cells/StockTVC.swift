@@ -106,7 +106,7 @@ extension StockTVC {
         backView.snp.makeConstraints { make in
             make.width.equalTo(335)
             make.height.equalTo(60)
-            make.top.equalTo(contentView).inset(12)
+            make.top.equalTo(contentView).inset(6)
             make.leading.trailing.equalTo(contentView).inset(20)
         }
         
@@ -148,11 +148,26 @@ extension StockTVC {
 }
 
 extension StockTVC {
-    func setData(logoPath: String, title: String, subTitle: String, curValue: String, rate: String, transPrice: Int) {
-        titleLabel.text = title
-        subTitleLabel.text = subTitle
-        curValueLabel.text = curValue
-        rateLabel.text = rate
-        transPriceLabel.text = "\(transPrice)억"
+    func setData(coinLogoImageName: String, coinEnglishTitle: String, coinKoreanTitle: String, coinCurrentPrice: Float, riseOrDescent: String, percentage: Float, coinTotalPrice: Float) {
+        let formatter = NumberFormatter().then {
+          $0.numberStyle = .decimal
+        }
+        
+        self.logoImage.image = UIImage(named: coinLogoImageName)
+        self.titleLabel.text = coinEnglishTitle
+        self.subTitleLabel.text = coinKoreanTitle
+        
+        
+        if riseOrDescent == "+" {
+            self.curValueLabel.setLabel(text: "\(formatter.string(from: NSNumber(value: coinCurrentPrice))!)", textColor: .textRed, font: .boldSystemFont(ofSize: 14))
+            self.rateLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .textRed, font: .systemFont(ofSize: 14, weight: .regular))
+        } else {
+            self.curValueLabel.setLabel(text: "\(formatter.string(from: NSNumber(value: coinCurrentPrice))!)", textColor: .mainBlue, font: .boldSystemFont(ofSize: 14))
+            self.rateLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .mainBlue, font: .systemFont(ofSize: 14, weight: .regular))
+        }
+        
+        self.transPriceLabel.setLabel(text: "\(formatter.string(from: NSNumber(value:coinTotalPrice))!)억", textColor: .coinGray, font: .systemFont(ofSize: 14, weight: .regular))
+        
     }
 }
+

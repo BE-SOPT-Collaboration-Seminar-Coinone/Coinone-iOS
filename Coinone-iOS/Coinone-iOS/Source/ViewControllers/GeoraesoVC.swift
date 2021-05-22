@@ -9,10 +9,10 @@ import UIKit
 import SnapKit
 
 class GeoraesoVC: UIViewController {
-    private var stockList: [StockModel] = []
+    private var stockList: [CoinListModel] = []
     var menuTitles: [String] = ["마이", "거래소", "간편구매", "정보"]
     
-    // MARK: - Header UI
+    // MARK: - HeaderView
     private lazy var headerView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -47,6 +47,8 @@ class GeoraesoVC: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.register(TopMenuCollectionViewCell.self, forCellWithReuseIdentifier: TopMenuCollectionViewCell.identifier)
+        
         return collectionView
     }()
     
@@ -210,87 +212,35 @@ class GeoraesoVC: UIViewController {
         
         tableView.backgroundColor = .tableViewGray
         tableView.tableFooterView = UIView(frame: .zero)
-        
         tableView.register(StockTVC.self, forCellReuseIdentifier: StockTVC.identifier)
         
         return tableView
     }()
     
-    // MARK: - Table Header View
-    private lazy var tableHeaderView: UIView = {
-        let view = UIView()
-        
-        view.backgroundColor = .tableViewGray
-        
-        view.addSubview(tableHeaderLabel)
-        view.addSubview(foldListButton)
-        
-        tableHeaderLabel.snp.makeConstraints { make in
-            make.leading.equalTo(view.snp.leading).inset(20)
-            make.centerY.equalTo(view.snp.centerY)
-        }
-        foldListButton.snp.makeConstraints { make in
-            make.trailing.equalTo(view.snp.trailing).inset(20)
-            make.centerY.equalTo(view.snp.centerY)
-            make.width.equalTo(10)
-            make.height.equalTo(6)
-        }
-        
-        return view
-    }()
-    
-    private var tableHeaderLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Main Market"
-        label.font = UIFont.init(name: "NotoSansKR-Bold", size: 12)
-        label.textColor = UIColor(red: 101.0 / 255.0, green: 101.0 / 255.0, blue: 101.0 / 255.0, alpha: 1.0)
-        
-        
-        return label
-    }()
-    private let foldListButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(systemName: "chevron.up"), for: .normal)
-        button.setPreferredSymbolConfiguration(.init(pointSize: 20,
-                                                             weight: .light,
-                                                             scale: .large),
-                                                       forImageIn: .normal)
-        button.tintColor = .textGray
-        button.addTarget(self, action: #selector(foldList(_:)), for: .touchUpInside)
-        
-        return button
-    }()
-    
-
+    // MARK: - LifeCycle Method
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setConfigure()
         setDummyData()
-        register()
     }
     
     // MARK: - DummyData
     func setDummyData() {
-        stockList.append(contentsOf: [
-                            StockModel(logoImage: "",
-                                       title: "XRP",
-                                       subTitle: "리플",
-                                       curValue: "1,625",
-                                       rate: "-0.37%",
-                                       transPrice: 2059),
-                            StockModel(logoImage: "",
-                                       title: "XRP",
-                                       subTitle: "리플",
-                                       curValue: "1,500",
-                                       rate: "-0.37%",
-                                       transPrice: 2489),
-                            StockModel(logoImage: "",
-                                       title: "XRP",
-                                       subTitle: "리플",
-                                       curValue: "1,000",
-                                       rate: "-0.37%",
-                                       transPrice: 1280)])
+        stockList.append(contentsOf: [CoinListModel(coinLogoImageName: "coinLogo",
+                                                    coinEnglishTitle: "XRP",
+                                                    coinKoreanTitle: "리플",
+                                                    coinCurrentPrice: 1625,
+                                                    riseOrDescent: "-",
+                                                    percentage: 0.37,
+                                                    coinTotalPrice: 2059),
+                                      CoinListModel(coinLogoImageName: "coinLogo",
+                                                    coinEnglishTitle: "XRP",
+                                                    coinKoreanTitle: "리플",
+                                                    coinCurrentPrice: 1625,
+                                                    riseOrDescent: "+",
+                                                    percentage: 0.37,
+                                                    coinTotalPrice: 2059)])
     }
     
 }
@@ -301,23 +251,14 @@ extension GeoraesoVC {
         setHeaderView()
         setTableView()
     }
-    private func register() {
-            self.topCollectionView.register(TopMenuCollectionViewCell.self, forCellWithReuseIdentifier: TopMenuCollectionViewCell.identifier)
-    }
     
     private func setHeaderView() {
         view.addSubview(headerView)
         
-        view.addSubview(logoImage)
-        view.addSubview(searchButton)
+        headerView.adds([logoImage, searchButton, topCollectionView,
+                         coinView, curValueView, rateView, transPriceView])
         
-        view.addSubview(topCollectionView)
-        
-        view.addSubview(coinView)
-        view.addSubview(curValueView)
-        view.addSubview(rateView)
-        view.addSubview(transPriceView)
-        
+        // MARK: - HeaderButton Constraints
         headerView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(140)
@@ -326,16 +267,19 @@ extension GeoraesoVC {
         logoImage.snp.makeConstraints { make in
             make.top.equalTo(headerView.snp.top).inset(20)
             make.leading.equalTo(headerView.snp.leading).inset(20)
+            make.width.equalTo(98)
+            make.height.equalTo(18)
         }
         searchButton.snp.makeConstraints { make in
             make.top.equalTo(headerView.snp.top).inset(20)
-            make.leading.equalTo(headerView.snp.leading).inset(339)
+            make.leading.equalTo(headerView.snp.trailing).inset(20)
+            make.width.equalTo(20)
+            make.height.equalTo(20)
         }
-        
         topCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(view).inset(20)
-            make.leading.equalTo(view).inset(20)
-            make.trailing.equalTo(view).inset(131)
+            make.top.equalTo(headerView).inset(51)
+            make.leading.equalTo(headerView).inset(20)
+            make.width.equalTo(headerView)
             make.height.equalTo(30)
         }
         
@@ -361,7 +305,7 @@ extension GeoraesoVC {
         transPriceView.snp.makeConstraints { make in
             make.top.equalTo(headerView.snp.top).inset(96)
             make.leading.equalTo(headerView.snp.leading).inset(286)
-            make.width.equalTo(70)
+            make.trailing.equalTo(headerView.snp.trailing).inset(19)
             make.height.equalTo(30)
         }
     }
@@ -381,24 +325,14 @@ extension GeoraesoVC {
 
 // MARK: - TableViewDelegate
 extension GeoraesoVC: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        tableHeaderView
-    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        20
+        return 20
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 72
     }
-    
-    @objc func foldList(_ sender: UIButton) {
-        print("fold button touched")
-        
-        // TODO: - fold list action
-    }
-    
 }
 
 // MARK: - TableViewDataSource
@@ -412,19 +346,13 @@ extension GeoraesoVC: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.contentView.backgroundColor = .tableViewGray
-        
         let data = stockList[indexPath.row]
-        cell.setData(logoPath: data.title, title: data.title, subTitle: data.subTitle, curValue: data.curValue, rate: data.rate, transPrice: data.transPrice)
+        cell.setData(coinLogoImageName: data.coinLogoImageName, coinEnglishTitle: data.coinEnglishTitle, coinKoreanTitle: data.coinKoreanTitle, coinCurrentPrice: data.coinCurrentPrice, riseOrDescent: data.riseOrDescent, percentage: data.percentage, coinTotalPrice: data.coinTotalPrice)
         return cell
     }
 }
 
-extension UITableView {
-    func removeExtraCellLines() {
-        tableFooterView = UIView(frame: .zero)
-    }
-}
-
+// MARK: - UICollectionViewDelegateFlowLayout
 extension GeoraesoVC: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width: CGFloat
