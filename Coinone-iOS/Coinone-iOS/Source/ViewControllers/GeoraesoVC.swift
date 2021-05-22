@@ -347,6 +347,7 @@ extension GeoraesoVC {
     view.addSubview(rateView)
     view.addSubview(transPriceView)
     
+    
     headerView.snp.makeConstraints { make in
       make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
       make.height.equalTo(140)
