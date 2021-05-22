@@ -9,11 +9,12 @@ import SnapKit
 
 class GeoraesoVC: UIViewController {
     private var stockList: [StockModel] = []
+    var menuTitles: [String] = ["마이", "거래소", "간편구매", "정보"]
     
     // MARK: - Header UI
     private lazy var headerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
         return view
     }()
     
@@ -31,6 +32,18 @@ class GeoraesoVC: UIViewController {
                                                      scale: .large),
                                                forImageIn: .normal)
         return button
+    }()
+    
+    
+    lazy var topCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.isScrollEnabled = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+        return collectionView
     }()
     
     private lazy var myLabel: UILabel = {
@@ -67,8 +80,7 @@ class GeoraesoVC: UIViewController {
         return view
     }()
     
-    // MARK: - Filter UI
-    // coin filter button
+    // MARK: - CoinFilter Button UI
     private lazy var coinView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -104,7 +116,7 @@ class GeoraesoVC: UIViewController {
         return button
     }()
     
-    // curvalue filter button
+    // MARK: - CurValueFilter Button UI
     private lazy var curValueView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -141,7 +153,7 @@ class GeoraesoVC: UIViewController {
         return button
     }()
     
-    // rate filter button
+    // MARK: - RateFilterView UI
     private lazy var rateView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -178,7 +190,7 @@ class GeoraesoVC: UIViewController {
         return button
     }()
     
-    // trans price filter button
+    // MARK: - TransPriceFilterView UI
     private lazy var transPriceView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -282,6 +294,11 @@ class GeoraesoVC: UIViewController {
         
         setConfigure()
         setDummyData()
+        
+        topCollectionView.delegate = self
+        topCollectionView.dataSource = self
+        
+        register()
     }
     
     // MARK: - DummyData
@@ -315,22 +332,23 @@ extension GeoraesoVC {
         setTableView()
     }
     
+    private func register() {
+        self.topCollectionView.register(TopMenuCollectionViewCell.self, forCellWithReuseIdentifier: TopMenuCollectionViewCell.identifier)
+    }
+    
     private func setHeaderView() {
         view.addSubview(headerView)
         
-        view.addSubview(logoImage)
-        view.addSubview(searchButton)
+        headerView.addSubview(logoImage)
+        headerView.addSubview(searchButton)
         
-        view.addSubview(myLabel)
-        view.addSubview(marketLabel)
-        view.addSubview(lineView)
-        view.addSubview(easyTransLabel)
-        view.addSubview(infoLabel)
+        headerView.addSubview(topCollectionView)
+
         
-        view.addSubview(coinView)
-        view.addSubview(curValueView)
-        view.addSubview(rateView)
-        view.addSubview(transPriceView)
+        headerView.addSubview(coinView)
+        headerView.addSubview(curValueView)
+        headerView.addSubview(rateView)
+        headerView.addSubview(transPriceView)
         
         headerView.snp.makeConstraints { make in
             make.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
@@ -346,28 +364,11 @@ extension GeoraesoVC {
             make.leading.equalTo(headerView.snp.leading).inset(339)
         }
         
-        // MARK: - Header Tab Constraints
-        myLabel.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.top).inset(51)
-            make.leading.equalTo(headerView.snp.leading).inset(20)
-        }
-        marketLabel.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.top).inset(51)
-            make.leading.equalTo(headerView.snp.leading).inset(70)
-        }
-        lineView.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.top).inset(78)
-            make.centerX.equalTo(marketLabel)
-            make.width.equalTo(48)
-            make.height.equalTo(2)
-        }
-        easyTransLabel.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.top).inset(51)
-            make.leading.equalTo(headerView.snp.leading).inset(135)
-        }
-        infoLabel.snp.makeConstraints { make in
-            make.top.equalTo(headerView.snp.top).inset(51)
-            make.leading.equalTo(headerView.snp.leading).inset(214)
+        topCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(logoImage).inset(20)
+            make.leading.equalTo(headerView).inset(20)
+            make.trailing.equalTo(headerView).inset(131)
+            make.height.equalTo(30)
         }
         
         // MARK: - Filter Button Constraints
@@ -452,5 +453,37 @@ extension GeoraesoVC: UITableViewDataSource {
 extension UITableView {
     func removeExtraCellLines() {
         tableFooterView = UIView(frame: .zero)
+    }
+}
+
+
+extension GeoraesoVC: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat
+        switch indexPath.item {
+        case 1:
+          width = 45
+        case 2:
+          width = 60
+        default:
+          width = 30
+        }
+        return CGSize(width: width+self.view.frame.width*10/375, height: 30)
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+extension GeoraesoVC: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.menuTitles.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let topMenuCell = collectionView.dequeueReusableCell(withReuseIdentifier: TopMenuCollectionViewCell.identifier, for: indexPath) as? TopMenuCollectionViewCell else {
+            return UICollectionViewCell()
+        }
+        topMenuCell.titleLabel.setLabel(text: self.menuTitles[indexPath.item], textColor: .textGray, font: .notoSansKRBoldFont(fontSize: 16))
+        topMenuCell.awakeFromNib()
+        return topMenuCell
     }
 }
