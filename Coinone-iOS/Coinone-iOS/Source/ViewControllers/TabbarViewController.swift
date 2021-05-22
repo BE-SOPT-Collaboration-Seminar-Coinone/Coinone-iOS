@@ -9,6 +9,7 @@ import Foundation
 import UIKit
 
 class TabbarViewContorller: UITabBarController {
+  
   var defaultIndex = 0 {
     didSet {
       self.selectedIndex = defaultIndex
@@ -33,10 +34,11 @@ extension TabbarViewContorller {
     let secondEmptyTabController = TransactionViewController()
     let viewControllers = [firstTabController, secondTabController, emptyTabController, secondEmptyTabController]
     self.setViewControllers(viewControllers, animated: true)
-
+    
     let tabBar: UITabBar = self.tabBar
     tabBar.backgroundColor = UIColor.clear
     tabBar.barTintColor = UIColor.white
+    tabBar.isHidden = false
     
     let imageNames = ["homeButton", "assetButton", "plusButton", "moreButton"]
     let imageSelectedNames = ["homeButton", "assetButton", "plusButton", "moreButton"]
@@ -49,5 +51,6 @@ extension TabbarViewContorller {
       tabBarItem.accessibilityIdentifier = imageNames[ind]
       tabBarItem.imageInsets.left = 4
     }
+    self.hidesBottomBarWhenPushed = false
   }
 }

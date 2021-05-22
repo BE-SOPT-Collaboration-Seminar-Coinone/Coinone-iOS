@@ -82,8 +82,8 @@ extension CoinListTableViewCell {
     self.coinTitleContainerView.add(coinTitleLogoImageView) {
       $0.snp.makeConstraints {
         $0.leading.equalTo(self.coinTitleContainerView.snp.leading)
-        $0.top.equalTo(self.coinTitleEnglishLabel.snp.top)
-        $0.width.height.equalTo(12)
+        $0.bottom.equalTo(self.coinTitleEnglishLabel.snp.bottom).offset(-3)
+        $0.width.height.equalTo(11)
       }
     }
   }
