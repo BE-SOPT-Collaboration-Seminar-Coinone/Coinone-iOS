@@ -19,6 +19,7 @@ class TransactionViewController: UIViewController {
     self.contentCollectionView.delegate = self
     self.contentCollectionView.dataSource = self
     self.hidesBottomBarWhenPushed = false
+    self.navigationController?.navigationBar.isHidden = true
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
@@ -201,13 +202,14 @@ extension TransactionViewController: UICollectionViewDataSource {
     return reusableView
   }
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    if indexPath.section == 0 {
-      if indexPath.item == 0 {
-        self.tabBarController?.selectedIndex = 2
-        HomeViewController.menuIndex = 2
-        self.tabBarController?.reloadInputViews()
-        self.reloadInputViews()
-      }
+    if indexPath.section == 0 && indexPath.item == 0 && self.navigationController?.parent != nil {
+      HomeViewController.menuIndex = 0
+      let homeViewController = HomeViewController()
+      self.navigationController?.pushViewController(homeViewController, animated: false)
+    }
+    if indexPath.section == 0 && indexPath.item == 0 && self.navigationController?.parent == nil {
+      HomeViewController.menuIndex = 0
+      self.navigationController?.popViewController(animated: false)
     }
   }
 }
