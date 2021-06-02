@@ -27,12 +27,23 @@ extension TabbarViewContorller {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     let storyBoard = UIStoryboard(name: "My", bundle: nil)
+    let firstNavigationController = UINavigationController()
     guard let firstTabController = storyBoard.instantiateViewController(identifier: "MyViewController") as? MyViewController else { return }
+    firstNavigationController.addChild(firstTabController)
     
+    let secondNavigationController = UINavigationController()
     let secondTabController = GeoraesoVC()
+    secondNavigationController.addChild(secondTabController)
+    
+    let emptyNavigationController = UINavigationController()
     let emptyTabController = HomeViewController()
+    emptyNavigationController.addChild(emptyTabController)
+    
+    let secondEmptyNavigationController = UINavigationController()
     let secondEmptyTabController = TransactionViewController()
-    let viewControllers = [firstTabController, secondTabController, emptyTabController, secondEmptyTabController]
+    secondEmptyNavigationController.addChild(secondEmptyTabController)
+    
+    let viewControllers = [firstNavigationController, secondNavigationController, emptyNavigationController, secondEmptyNavigationController]
     self.setViewControllers(viewControllers, animated: true)
     
     let tabBar: UITabBar = self.tabBar

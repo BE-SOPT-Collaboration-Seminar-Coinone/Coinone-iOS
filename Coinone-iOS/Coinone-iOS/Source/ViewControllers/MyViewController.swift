@@ -11,14 +11,13 @@ class MyViewController: UIViewController {
   @IBOutlet weak var underlineview: UIView!
   @IBOutlet weak var myTableView: UITableView!
   @IBOutlet weak var chartView: UIView!
+  
   @IBAction func gaeraesobuttonclicked(_ sender: Any) {
     
     //    거래소 버튼 누르면 거래소로 넘어가게 //
     
-    
-    self.tabBarController?.selectedIndex = 1
-    self.tabBarController?.reloadInputViews()
-    self.reloadInputViews()
+    let georaesoVC = GeoraesoVC()
+    self.navigationController?.pushViewController(georaesoVC, animated: false)
     
   }
     
@@ -59,7 +58,7 @@ class MyViewController: UIViewController {
       
       //    chartView 뒤의 쉐도우 적용
       self.chartView.layer.applyShadow(color: .black, alpha: 0.12, x: 0, y: 0, blur: 8)
-      
+      self.navigationController?.navigationBar.isHidden = true
       
       
     }

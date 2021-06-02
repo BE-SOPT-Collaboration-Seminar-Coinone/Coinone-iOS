@@ -20,6 +20,7 @@ class HomeViewController: UIViewController {
     self.menuCollectionView.dataSource = self
     self.favoriteTableView.delegate = self
     self.favoriteTableView.dataSource = self
+    self.navigationController?.navigationBar.isHidden = true
   }
   
   override func viewWillAppear(_ animated: Bool) {
@@ -334,10 +335,9 @@ extension HomeViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     if indexPath.item == 1 {
-      self.tabBarController?.selectedIndex = 3
       HomeViewController.menuIndex = 1
-      self.tabBarController?.reloadInputViews()
-      self.reloadInputViews()
+      let transactionViewController = TransactionViewController()
+      self.navigationController?.pushViewController(transactionViewController, animated: false)
     }
   }
 }

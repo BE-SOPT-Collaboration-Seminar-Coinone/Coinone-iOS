@@ -119,6 +119,7 @@ extension CoinListTableViewCell {
       }
     }
   }
+  
   func dataBind(coinLogoImageName: String, coinEnglishTitle: String, coinKoreanTitle: String, coinCurrentPrice: Float, riseOrDescent: String, percentage: Float, coinTotalPrice: Float) {
     let formatter = NumberFormatter().then {
       $0.numberStyle = .decimal
