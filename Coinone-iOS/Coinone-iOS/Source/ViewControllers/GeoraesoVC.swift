@@ -237,6 +237,7 @@ class GeoraesoVC: UIViewController {
     
     tableView.backgroundColor = .tableViewGray
     tableView.tableFooterView = UIView(frame: .zero)
+    tableView.separatorStyle = .none
     
     tableView.register(StockTVC.self, forCellReuseIdentifier: StockTVC.identifier)
     
@@ -305,23 +306,26 @@ class GeoraesoVC: UIViewController {
   // MARK: - DummyData
   func setDummyData() {
     stockList.append(contentsOf: [
-                      StockModel(logoImage: "",
+                      StockModel(logoImage: "coinLogo",
                                  title: "XRP",
                                  subTitle: "리플",
-                                 curValue: "1,625",
-                                 rate: "-0.37%",
+                                 curValue: 1625,
+                                 riseOrDescent: "-",
+                                 rate: 0.37,
                                  transPrice: 2059),
-                      StockModel(logoImage: "",
+                      StockModel(logoImage: "coinLogo",
                                  title: "XRP",
                                  subTitle: "리플",
-                                 curValue: "1,500",
-                                 rate: "-0.37%",
+                                 curValue: 1625,
+                                 riseOrDescent: "-",
+                                 rate: 0.37,
                                  transPrice: 2489),
-                      StockModel(logoImage: "",
+                      StockModel(logoImage: "coinLogo",
                                  title: "XRP",
                                  subTitle: "리플",
-                                 curValue: "1,000",
-                                 rate: "-0.37%",
+                                 curValue: 1625,
+                                 riseOrDescent: "-",
+                                 rate: 0.37,
                                  transPrice: 1280)])
   }
 }
@@ -446,7 +450,7 @@ extension GeoraesoVC: UITableViewDataSource {
     cell.contentView.backgroundColor = .tableViewGray
     
     let data = stockList[indexPath.row]
-    cell.setData(logoPath: data.title, title: data.title, subTitle: data.subTitle, curValue: data.curValue, rate: data.rate, transPrice: data.transPrice)
+    cell.setData(coinLogoImageName: data.logoImage, coinEnglishTitle: data.title, coinKoreanTitle: data.subTitle, coinCurrentPrice: data.curValue, riseOrDescent: data.riseOrDescent, percentage: data.rate, coinTotalPrice: data.transPrice)
     return cell
   }
 }
