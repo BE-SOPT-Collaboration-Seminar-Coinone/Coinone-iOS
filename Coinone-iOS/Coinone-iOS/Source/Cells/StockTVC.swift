@@ -148,7 +148,7 @@ extension StockTVC {
 }
 
 extension StockTVC {
-    func setData(coinLogoImageName: String, coinEnglishTitle: String, coinKoreanTitle: String, coinCurrentPrice: Float, riseOrDescent: String, percentage: Float, coinTotalPrice: Float) {
+    func setData(coinLogoImageName: String, coinEnglishTitle: String, coinKoreanTitle: String, coinCurrentPrice: Float, riseOrDescent: String, percentage: Double, coinTotalPrice: Float) {
         let formatter = NumberFormatter().then {
           $0.numberStyle = .decimal
         }
