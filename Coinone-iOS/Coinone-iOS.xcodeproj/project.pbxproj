@@ -27,6 +27,10 @@
 		CC272E712651872400637BCE /* NotoSansKR-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6B2651872400637BCE /* NotoSansKR-Light.otf */; };
 		CC272E722651872400637BCE /* NotoSansKR-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6C2651872400637BCE /* NotoSansKR-Black.otf */; };
 		CC272E732651872400637BCE /* NotoSansKR-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = CC272E6D2651872400637BCE /* NotoSansKR-Bold.otf */; };
+		CC33700C2667C3C4004F067E /* SortedCoinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC33700B2667C3C4004F067E /* SortedCoinModel.swift */; };
+		CC33700F2667C549004F067E /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC33700E2667C549004F067E /* APIConstants.swift */; };
+		CC3370112667C552004F067E /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3370102667C552004F067E /* NetworkResult.swift */; };
+		CC3370132667C5D4004F067E /* CoinFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC3370122667C5D4004F067E /* CoinFilterService.swift */; };
 		CC6608BE265450B0004DD7D2 /* PopupHsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC6608BD265450B0004DD7D2 /* PopupHsViewController.swift */; };
 		CC770CF8265396CF004095A6 /* UILabel+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC770CF7265396CF004095A6 /* UILabel+.swift */; };
 		CC770CFC265397BD004095A6 /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC770CFB265397BD004095A6 /* UIFont+.swift */; };
@@ -74,6 +78,10 @@
 		CC272E6B2651872400637BCE /* NotoSansKR-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Light.otf"; sourceTree = "<group>"; };
 		CC272E6C2651872400637BCE /* NotoSansKR-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Black.otf"; sourceTree = "<group>"; };
 		CC272E6D2651872400637BCE /* NotoSansKR-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansKR-Bold.otf"; sourceTree = "<group>"; };
+		CC33700B2667C3C4004F067E /* SortedCoinModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedCoinModel.swift; sourceTree = "<group>"; };
+		CC33700E2667C549004F067E /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		CC3370102667C552004F067E /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		CC3370122667C5D4004F067E /* CoinFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinFilterService.swift; sourceTree = "<group>"; };
 		CC6608BD265450B0004DD7D2 /* PopupHsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupHsViewController.swift; sourceTree = "<group>"; };
 		CC770CF7265396CF004095A6 /* UILabel+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+.swift"; sourceTree = "<group>"; };
 		CC770CFB265397BD004095A6 /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
@@ -143,6 +151,7 @@
 				CC770D0426542DDF004095A6 /* CoinModel.swift */,
 				E8EC22B5265448200027E8A8 /* MyListDataModel.swift */,
 				CC0A1A9F26564FDA000B65B9 /* CoinListModel.swift */,
+				CC33700B2667C3C4004F067E /* SortedCoinModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,6 +167,14 @@
 				CC272E692651872300637BCE /* NotoSansKR-Thin.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		CC33700D2667C51F004F067E /* NetworkServices */ = {
+			isa = PBXGroup;
+			children = (
+				CC3370122667C5D4004F067E /* CoinFilterService.swift */,
+			);
+			path = NetworkServices;
 			sourceTree = "<group>";
 		};
 		CC770CFF26540937004095A6 /* Protocol */ = {
@@ -210,6 +227,7 @@
 		CCAA9A1D264FAA2A008E50BF /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				CC33700D2667C51F004F067E /* NetworkServices */,
 				CC770CFF26540937004095A6 /* Protocol */,
 				CC272E672651871300637BCE /* Font */,
 				CCA0ECC5264FA7A4001CC563 /* AppDelegate.swift */,
@@ -218,6 +236,8 @@
 				CCAA9A1F264FAA7B008E50BF /* Storyboards */,
 				CCA0ECCE264FA7A6001CC563 /* Assets.xcassets */,
 				CCA0ECD3264FA7A6001CC563 /* Info.plist */,
+				CC33700E2667C549004F067E /* APIConstants.swift */,
+				CC3370102667C552004F067E /* NetworkResult.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -409,6 +429,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC3370132667C5D4004F067E /* CoinFilterService.swift in Sources */,
 				CC0A1A9C265642E9000B65B9 /* TitleCollectionReusableView.swift in Sources */,
 				CCAA9A34264FAF68008E50BF /* UIView+.swift in Sources */,
 				CC6608BE265450B0004DD7D2 /* PopupHsViewController.swift in Sources */,
@@ -416,6 +437,7 @@
 				CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */,
 				CC770CF8265396CF004095A6 /* UILabel+.swift in Sources */,
 				CC0E232B265223FE00B982A0 /* StockTVC.swift in Sources */,
+				CC33700F2667C549004F067E /* APIConstants.swift in Sources */,
 				CC0A1A992656425A000B65B9 /* CoinListTableViewCell.swift in Sources */,
 				CC770CFE26540903004095A6 /* TopMenuCollectionViewCell.swift in Sources */,
 				CC770D03265426FA004095A6 /* FavoriteTableViewCell.swift in Sources */,
@@ -429,6 +451,7 @@
 				E8EC22B2265445210027E8A8 /* MyTableViewCell.swift in Sources */,
 				CC0E23272652232700B982A0 /* MyViewController.swift in Sources */,
 				CCAA9A2E264FAEB9008E50BF /* CALayer+.swift in Sources */,
+				CC3370112667C552004F067E /* NetworkResult.swift in Sources */,
 				CC272E6226517F0500637BCE /* HomeViewController.swift in Sources */,
 				CC0A1A9E2656434B000B65B9 /* CoinListCollectionReusableView.swift in Sources */,
 				CC0E232F2652244F00B982A0 /* GeoraesoVC.swift in Sources */,
@@ -436,6 +459,7 @@
 				CCA0ECC8264FA7A4001CC563 /* SceneDelegate.swift in Sources */,
 				CC770D0526542DDF004095A6 /* CoinModel.swift in Sources */,
 				CC272E6526517F1000637BCE /* TransactionViewController.swift in Sources */,
+				CC33700C2667C3C4004F067E /* SortedCoinModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
