@@ -7,10 +7,10 @@
 import Alamofire
 import UIKit
 import SnapKit
+import Kingfisher
 
 class GeoraesoVC: UIViewController {
     private var apiService = CoinListService()
-//    private var stockModel: StockModel?
     private var stockList: [StockModel] = [StockModel(coinLogoImageName: "coinLogo",
                                                       coinEnglishTitle: "XRP",
                                                       coinKoreanTitle: "리플",
