@@ -4,6 +4,7 @@
 //
 //  Created by 노한솔 on 2021/05/20.
 //
+import Alamofire
 import SnapKit
 import Then
 import UIKit
@@ -17,6 +18,7 @@ class CoinListCollectionReusableView: UICollectionReusableView {
   // MARK: - LifeCycles
   override func awakeFromNib() {
     super.awakeFromNib()
+    setInitialList()
     register()
     layout()
     self.coinListTableView.delegate = self
@@ -28,17 +30,17 @@ class CoinListCollectionReusableView: UICollectionReusableView {
   var coinModel: [CoinListModel] = [CoinListModel(coinLogoImageName: "coinLogo",
                                                   coinEnglishTitle: "XRP",
                                                   coinKoreanTitle: "리플",
-                                                  coinCurrentPrice: 1625,
+                                                  coinCurrentPrice: "1625",
                                                   riseOrDescent: "-",
-                                                  percentage: 0.37,
-                                                  coinTotalPrice: 2059),
+                                                  percentage: "0.37",
+                                                  coinTotalPrice: "2059"),
                                     CoinListModel(coinLogoImageName: "coinLogo",
                                                   coinEnglishTitle: "XRP",
                                                   coinKoreanTitle: "리플",
-                                                  coinCurrentPrice: 1625,
+                                                  coinCurrentPrice: "1625",
                                                   riseOrDescent: "+",
-                                                  percentage: 0.37,
-                                                  coinTotalPrice: 2059)]
+                                                  percentage: "0.37",
+                                                  coinTotalPrice: "2059")]
 }
 
 // MARK: - Extensions
@@ -58,6 +60,35 @@ extension CoinListCollectionReusableView {
       $0.separatorStyle = .none
       $0.snp.makeConstraints {
         $0.edges.equalToSuperview()
+      }
+    }
+  }
+  func setInitialList() {
+    CoinFilterService.shared.sortCoin(sort: "total-price", ascending: "-1") {
+      (networkResult) in
+      switch(networkResult) {
+      case .success(let data):
+        var tempCoinList:[CoinListModel] = []
+        guard let data = data as? [SortedCoin] else {return}
+        for i in 0..<data.count {
+          tempCoinList.append(CoinListModel(coinLogoImageName: data[i].coinLogoImage,
+                                            coinEnglishTitle: data[i].coinEnglishTitle,
+                                            coinKoreanTitle: data[i].coinKoreanTitle,
+                                            coinCurrentPrice: data[i].coinCurrentPrice,
+                                            riseOrDescent: data[i].riseOrDescent,
+                                            percentage: data[i].percentage,
+                                            coinTotalPrice: data[i].coinTotalPrice))
+        }
+        self.coinModel = tempCoinList
+        self.coinListTableView.reloadData()
+      case .networkFail:
+        print("networkFail")
+      case .pathErr:
+        print("pathErr")
+      case .requestErr:
+        print("requestErr")
+      case .serverErr:
+        print("serverErr")
       }
     }
   }
