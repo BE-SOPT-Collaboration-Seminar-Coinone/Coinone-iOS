@@ -7,11 +7,11 @@
 import Foundation
 
 struct StockModel {
-    var logoImage: String!
-    var title: String!
-    var subTitle: String!
-    var curValue: Float!
+    var coinLogoImageName: String
+    var coinEnglishTitle: String
+    var coinKoreanTitle: String
+    var coinCurrentPrice: String
     var riseOrDescent: String
-    var rate: Double!
-    var transPrice: Float!
+    var percentage: String
+    var coinTotalPrice: String
 }

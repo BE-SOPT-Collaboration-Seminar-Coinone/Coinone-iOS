@@ -4,11 +4,29 @@
 //
 //  Created by soyeon on 2021/05/15.
 //
+import Alamofire
 import UIKit
 import SnapKit
 
 class GeoraesoVC: UIViewController {
-    private var stockList: [StockModel] = []
+    private var apiService = CoinListService()
+//    private var stockModel: StockModel?
+    private var stockList: [StockModel] = [StockModel(coinLogoImageName: "coinLogo",
+                                                      coinEnglishTitle: "XRP",
+                                                      coinKoreanTitle: "리플",
+                                                      coinCurrentPrice: "1625",
+                                                      riseOrDescent: "-",
+                                                      percentage: "0.37",
+                                                      coinTotalPrice: "2059"),
+                                           StockModel(coinLogoImageName: "coinLogo",
+                                                      coinEnglishTitle: "XRP",
+                                                      coinKoreanTitle: "리플",
+                                                      coinCurrentPrice: "1625",
+                                                      riseOrDescent: "+",
+                                                      percentage: "0.37",
+                                                      coinTotalPrice: "2059")]
+    
+    //    private var stockList: [StockModel] = []
     var menuTitles: [String] = ["마이", "거래소", "간편구매", "정보"]
     
     // MARK: - Header UI
@@ -288,43 +306,19 @@ class GeoraesoVC: UIViewController {
         return button
     }()
     
+    // MARK: - LifeCycyle Methods
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getStockData()
         setConfigure()
-        setDummyData()
         
         topCollectionView.delegate = self
         topCollectionView.dataSource = self
         
         register()
         self.navigationController?.navigationBar.isHidden = true
-    }
-    
-    // MARK: - DummyData
-    func setDummyData() {
-        stockList.append(contentsOf: [
-                            StockModel(logoImage: "coinLogo",
-                                       title: "XRP",
-                                       subTitle: "리플",
-                                       curValue: 1625,
-                                       riseOrDescent: "-",
-                                       rate: 0.37,
-                                       transPrice: 2059),
-                            StockModel(logoImage: "coinLogo",
-                                       title: "XRP",
-                                       subTitle: "리플",
-                                       curValue: 1625,
-                                       riseOrDescent: "-",
-                                       rate: 0.37,
-                                       transPrice: 2489),
-                            StockModel(logoImage: "coinLogo",
-                                       title: "XRP",
-                                       subTitle: "리플",
-                                       curValue: 1625,
-                                       riseOrDescent: "-",
-                                       rate: 0.37,
-                                       transPrice: 1280)])
     }
 }
 
@@ -448,7 +442,7 @@ extension GeoraesoVC: UITableViewDataSource {
         cell.contentView.backgroundColor = .tableViewGray
         
         let data = stockList[indexPath.row]
-        cell.setData(coinLogoImageName: data.logoImage, coinEnglishTitle: data.title, coinKoreanTitle: data.subTitle, coinCurrentPrice: data.curValue, riseOrDescent: data.riseOrDescent, percentage: data.rate, coinTotalPrice: data.transPrice)
+        cell.setData(coinLogoImageName: data.coinLogoImageName, coinEnglishTitle: data.coinEnglishTitle, coinKoreanTitle: data.coinKoreanTitle, coinCurrentPrice: data.coinCurrentPrice, riseOrDescent: data.riseOrDescent, percentage: data.percentage, coinTotalPrice: data.coinTotalPrice)
         return cell
     }
 }
@@ -502,6 +496,40 @@ extension GeoraesoVC: UICollectionViewDataSource {
         }
         if indexPath.item == 0 && self.navigationController?.parent == nil {
             self.navigationController?.popViewController(animated: false)
+        }
+    }
+}
+
+// MARK: - Network
+
+extension GeoraesoVC {
+    func getStockData() {
+        CoinFilterService.shared.sortCoin(sort: "total-price", ascending: "-1") {
+            (networkResult) in
+            switch(networkResult) {
+            case .success(let data):
+                var tempCoinList:[StockModel] = []
+                guard let data = data as? [SortedCoin] else {return}
+                for i in 0..<data.count {
+                    tempCoinList.append(StockModel(coinLogoImageName: data[i].coinLogoImage,
+                                                   coinEnglishTitle: data[i].coinEnglishTitle,
+                                                   coinKoreanTitle: data[i].coinKoreanTitle,
+                                                   coinCurrentPrice: data[i].coinCurrentPrice,
+                                                   riseOrDescent: data[i].riseOrDescent,
+                                                   percentage: data[i].percentage,
+                                                   coinTotalPrice: data[i].coinTotalPrice))
+                }
+                self.stockList = tempCoinList
+                self.tableView.reloadData()
+            case .networkFail:
+                print("networkFail")
+            case .pathErr:
+                print("pathErr")
+            case .requestErr:
+                print("requestErr")
+            case .serverErr:
+                print("serverErr")
+            }
         }
     }
 }

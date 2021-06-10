@@ -9,12 +9,12 @@ import Foundation
 
 struct APIConstants {
   
-  static let baseURL = "http://3.37.86.93:5000"
+  static let baseURL = "http://52.79.251.168:5000"
   
   static let addCoinURL = baseURL + "/api/add-coin"
-  static let addUserURL = baseURL + "/api/add-user/"
-  static let myCoinURL = baseURL + "/api/my-coin/"
-  static let coinListURL = baseURL + "/api/coin-list/"
+  static let addUserURL = baseURL + "/api/add-user "
+  static let myCoinURL = baseURL + "/api/my-coin"
+  static let coinListURL = baseURL + "/api/coin-list"
 }
 
 struct APIIndex {

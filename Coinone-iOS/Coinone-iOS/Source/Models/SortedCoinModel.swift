@@ -9,12 +9,6 @@ import Foundation
 
 // MARK: - SortedCoin
 struct SortedCoin: Codable {
-  let success: Bool
-  let data: [SortedData]
-}
-
-// MARK: - SortedData
-struct SortedData: Codable {
   let id: String
   let coinLogoImage: String
   let coinEnglishTitle, coinKoreanTitle, coinCurrentPrice, riseOrDescent: String
@@ -28,3 +22,4 @@ struct SortedData: Codable {
     case v = "__v"
   }
 }
+
