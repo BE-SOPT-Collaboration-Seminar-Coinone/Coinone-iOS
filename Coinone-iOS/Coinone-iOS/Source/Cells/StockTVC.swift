@@ -141,7 +141,7 @@ extension StockTVC {
         
         transPriceLabel.snp.makeConstraints { make in
             make.top.equalTo(backView.snp.top).inset(22)
-            make.leading.equalTo(backView.snp.leading).inset(279)
+            make.leading.equalTo(backView.snp.leading).inset(299)
             make.height.equalTo(17)
         }
     }
