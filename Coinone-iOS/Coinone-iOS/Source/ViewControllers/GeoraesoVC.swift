@@ -4,6 +4,7 @@
 //
 //  Created by soyeon on 2021/05/15.
 //
+import Alamofire
 import UIKit
 import SnapKit
 
@@ -446,7 +447,8 @@ extension GeoraesoVC: UITableViewDataSource {
     cell.contentView.backgroundColor = .tableViewGray
     
     let data = stockList[indexPath.row]
-    cell.setData(logoPath: data.title, title: data.title, subTitle: data.subTitle, curValue: data.curValue, rate: data.rate, transPrice: data.transPrice)
+//    cell.setData(logoPath: data.title, title: data.title, subTitle: data.subTitle, curValue: data.curValue, rate: data.rate, transPrice: data.transPrice)
+//    cell.setData(coinLogoImageName: data.title, coinEnglishTitle: data.title, coinKoreanTitle: data.subTitle, coinCurrentPrice: data.curValue, riseOrDescent: data.rate, percentage: data.transPrice, coinTotalPrice: <#T##Float#>)
     return cell
   }
 }
