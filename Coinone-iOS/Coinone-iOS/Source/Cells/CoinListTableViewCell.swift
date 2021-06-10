@@ -106,7 +106,7 @@ extension CoinListTableViewCell {
   func layoutCoinFluctuationDegreeLabel() {
     self.containerView.add(coinFluctuationDegreeLabel) {
       $0.snp.makeConstraints {
-        $0.trailing.equalTo(self.coinTotalPriceLabel.snp.leading).offset(-24)
+        $0.trailing.equalTo(self.coinTotalPriceLabel.snp.trailing).offset(-70)
         $0.centerY.equalTo(self.containerView.snp.centerY)
       }
     }
@@ -114,27 +114,24 @@ extension CoinListTableViewCell {
   func layoutCoinCurrentPriceLabel() {
     self.containerView.add(coinCurrentPriceLabel) {
       $0.snp.makeConstraints {
-        $0.trailing.equalTo(self.coinFluctuationDegreeLabel.snp.leading).offset(-24)
+        $0.trailing.equalTo(self.coinTotalPriceLabel.snp.trailing).offset(-144)
         $0.centerY.equalTo(self.containerView.snp.centerY)
       }
     }
   }
   
-  func dataBind(coinLogoImageName: String, coinEnglishTitle: String, coinKoreanTitle: String, coinCurrentPrice: Float, riseOrDescent: String, percentage: Float, coinTotalPrice: Float) {
-    let formatter = NumberFormatter().then {
-      $0.numberStyle = .decimal
-    }
-    self.coinTitleLogoImageView.image = UIImage(named: coinLogoImageName)
+  func dataBind(coinLogoImageName: String, coinEnglishTitle: String, coinKoreanTitle: String, coinCurrentPrice: String, riseOrDescent: String, percentage: String, coinTotalPrice: String) {
+    self.coinTitleLogoImageView.imageFromUrl(coinLogoImageName, defaultImgPath: "https://sopt-8-coinone.s3.ap-northeast-2.amazonaws.com/KLAY.png")
     self.coinTitleEnglishLabel.setLabel(text: coinEnglishTitle, textColor: .black, font: .notoSansKRBoldFont(fontSize: 14))
     self.coinTitleKoreanLabel.setLabel(text: coinKoreanTitle, textColor: .coinGray, font: .notoSansKRMediumFont(fontSize: 10))
     if riseOrDescent == "+" {
-      self.coinCurrentPriceLabel.setLabel(text: "\(formatter.string(from: NSNumber(value: coinCurrentPrice))!)", textColor: .textRed, font: .boldSystemFont(ofSize: 14))
+      self.coinCurrentPriceLabel.setLabel(text: coinCurrentPrice, textColor: .textRed, font: .boldSystemFont(ofSize: 14))
       self.coinFluctuationDegreeLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .textRed, font: .systemFont(ofSize: 14, weight: .regular))
     }
     else {
-      self.coinCurrentPriceLabel.setLabel(text: "\(formatter.string(from: NSNumber(value: coinCurrentPrice))!)", textColor: .mainBlue, font: .boldSystemFont(ofSize: 14))
+      self.coinCurrentPriceLabel.setLabel(text: coinCurrentPrice, textColor: .mainBlue, font: .boldSystemFont(ofSize: 14))
       self.coinFluctuationDegreeLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .mainBlue, font: .systemFont(ofSize: 14, weight: .regular))
     }
-    self.coinTotalPriceLabel.setLabel(text: "\(formatter.string(from: NSNumber(value:coinTotalPrice))!)억", textColor: .coinGray, font: .systemFont(ofSize: 14, weight: .regular))
+    self.coinTotalPriceLabel.setLabel(text: "\(coinTotalPrice.dropLast(8))억", textColor: .coinGray, font: .systemFont(ofSize: 14, weight: .regular))
   }
 }

@@ -12,8 +12,8 @@ struct CoinListModel {
   var coinLogoImageName: String
   var coinEnglishTitle: String
   var coinKoreanTitle: String
-  var coinCurrentPrice: Float
+  var coinCurrentPrice: String
   var riseOrDescent: String
-  var percentage: Float
-  var coinTotalPrice: Float
+  var percentage: String
+  var coinTotalPrice: String
 }
