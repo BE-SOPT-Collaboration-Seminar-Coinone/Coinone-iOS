@@ -22,7 +22,24 @@ class MyViewController: UIViewController {
   }
     
     
-    var myList : [MyListDataModel] = []
+    var myList : [MyListDataModel] = [MyListDataModel(logoImage: "coinIcon",
+                                                      companyName: "TestCompany",
+                                                      companyNameKR: "테스트 컴퍼니",
+                                                      ratenum : "1,700.0",
+                                                      riseRate :"77.7",
+                                                      plusorminus: "+",
+                                                      compareRiseRate: "1.11%",
+                                                      GraphImage: "Graph Image"),
+                                      
+                                      
+                                      MyListDataModel(logoImage: "coinIcon",
+                                                      companyName: "TestCompany2",
+                                                      companyNameKR: "테스트 컴퍼니2",
+                                                      ratenum : "2,000.0",
+                                                      riseRate :"88.8",
+                                                      plusorminus: "+",
+                                                      compareRiseRate: "99.99%",
+                                                      GraphImage: "Graph Image")]
     
     //    Popup 창이 계속해서 반복해서 나오는 걸 탈출시키기 위해서 //
     var popupIsShown : Bool = false
@@ -36,7 +53,7 @@ class MyViewController: UIViewController {
                 storyboard.instantiateViewController(identifier: "PopupViewController") as? PopupViewController else {return}
         
         
-        mainVC.modalPresentationStyle = .overCurrentContext
+        mainVC.modalPresentationStyle = .overFullScreen
         mainVC.modalTransitionStyle = .crossDissolve
         
         self.present(mainVC, animated :true, completion: nil)
@@ -50,7 +67,7 @@ class MyViewController: UIViewController {
       super.viewDidLoad()
       
       
-      setMyList()
+
       self.underlineview.layer.cornerRadius = 3
       self.myTableView.delegate = self
       self.myTableView.dataSource = self
@@ -61,38 +78,45 @@ class MyViewController: UIViewController {
       self.navigationController?.navigationBar.isHidden = true
       
       
+      // 서버통신
+        
+        GetMyDataService.shared.getMyInfo { (response) in
+                    switch(response)
+                    {
+                    case .success(let myData):
+                        if let data = myData as? MyDataModel {
+                            for i in 0..<data.coin.count {
+                                self.myList.append(MyListDataModel(
+                                                    logoImage: data.coin[i].coinLogoImage,
+                                                    companyName: data.coin[i].coinEnglishTitle,
+                                                    companyNameKR: data.coin[i].coinKoreanTitle,
+                                                    ratenum: data.coin[i].coinCurrentPrice,
+                                                    riseRate: data.coin[i].degree,
+                                                    plusorminus: data.coin[i].riseOrDescent,
+                                                    compareRiseRate: data.coin[i].percentage,
+                                                    GraphImage: data.coin[i].graphImage))
+                            }
+                            
+                        }
+                    case .requestErr :
+                        print("requestERR")
+                    case .pathErr :
+                        print("pathERR")
+                    case .serverErr:
+                        print("serverERR")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+                }
     }
     
     
     
     //  MyList 에 들어가는 Data ///
-    func setMyList()
-    {
-      myList.append(contentsOf: [
-        MyListDataModel(logoImage: "coinIcon",
-                        companyName: "TestCompany",
-                        companyNameKR: "테스트 컴퍼니",
-                        ratenum : "1,700.0",
-                        riseRate :"77.7",
-                        RiseImage: "Rise Image",
-                        compareRiseRate: "+1.11%",
-                        GraphImage: "Graph Image"),
-        
-        
-        MyListDataModel(logoImage: "coinIcon",
-                        companyName: "TestCompany2",
-                        companyNameKR: "테스트 컴퍼니2",
-                        ratenum : "2,000.0",
-                        riseRate :"88.8",
-                        RiseImage: "Rise Image",
-                        compareRiseRate: "+99.99%",
-                        GraphImage: "Graph Image"),
-        
-        
-      ])
+    
     }
     
-  }
+  
   
   extension MyViewController : UITableViewDelegate
   {
@@ -123,7 +147,6 @@ class MyViewController: UIViewController {
                      companyNameKR: myList[indexPath.row].companyNameKR,
                      ratenum: myList[indexPath.row].ratenum,
                      riseRate: myList[indexPath.row].riseRate,
-                     RiseImage: myList[indexPath.row].RiseImage,
                      compareRiseRate: myList[indexPath.row].compareRiseRate,
                      GraphImage: myList[indexPath.row].GraphImage)
       

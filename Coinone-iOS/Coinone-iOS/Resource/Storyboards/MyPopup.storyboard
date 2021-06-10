@@ -3,7 +3,6 @@
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,18 +19,18 @@
         <scene sceneID="ZuX-Si-TCk">
             <objects>
                 <viewController storyboardIdentifier="PopupViewController" title="PopupViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BOU-fn-x6Q" customClass="PopupViewController" customModule="Coinone_iOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Ncs-M1-ngq">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ncs-M1-ngq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mCI-ro-cBy">
-                                <rect key="frame" x="44" y="231" width="286" height="349"/>
+                                <rect key="frame" x="44" y="231.66666666666663" width="286" height="349"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="picture" translatesAutoresizingMaskIntoConstraints="NO" id="xjQ-un-b3l">
                                         <rect key="frame" x="0.0" y="0.0" width="286" height="349"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신규상장" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3p4-rm-ztk">
-                                        <rect key="frame" x="110" y="35" width="66.333333333333314" height="26.333333333333329"/>
+                                        <rect key="frame" x="110" y="35.000000000000028" width="66.333333333333314" height="26.333333333333329"/>
                                         <fontDescription key="fontDescription" name="NotoSansKR-Light" family="Noto Sans KR" pointSize="18"/>
                                         <color key="textColor" red="0.67843137249999996" green="0.70196078429999997" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" red="0.67843137249999996" green="0.70196078429999997" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -86,7 +85,7 @@
                                         </constraints>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="바이오패스포트(BIOT)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDQ-lU-acf">
-                                        <rect key="frame" x="57.000000000000014" y="64.333333333333314" width="172.33333333333337" height="26.333333333333329"/>
+                                        <rect key="frame" x="57.000000000000014" y="64.333333333333343" width="172.33333333333337" height="26.333333333333329"/>
                                         <fontDescription key="fontDescription" name="NotoSansKR-Bold" family="Noto Sans KR" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="highlightedColor" red="0.67843137249999996" green="0.70196078429999997" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,13 +109,12 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="emD-6E-G8x"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.40397350993377484" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="emD-6E-G8x" firstAttribute="trailing" secondItem="mCI-ro-cBy" secondAttribute="trailing" constant="45" id="C8I-ou-C0U"/>
-                            <constraint firstItem="mCI-ro-cBy" firstAttribute="leading" secondItem="emD-6E-G8x" secondAttribute="leading" constant="44" id="csn-mX-O9A"/>
-                            <constraint firstItem="mCI-ro-cBy" firstAttribute="top" secondItem="emD-6E-G8x" secondAttribute="top" constant="187" id="dw1-0t-voh"/>
-                            <constraint firstItem="emD-6E-G8x" firstAttribute="bottom" secondItem="mCI-ro-cBy" secondAttribute="bottom" constant="198" id="pyh-vH-ElG"/>
+                            <constraint firstAttribute="trailing" secondItem="mCI-ro-cBy" secondAttribute="trailing" constant="45" id="C8I-ou-C0U"/>
+                            <constraint firstItem="mCI-ro-cBy" firstAttribute="centerY" secondItem="Ncs-M1-ngq" secondAttribute="centerY" id="OlC-fG-6JG"/>
+                            <constraint firstItem="mCI-ro-cBy" firstAttribute="leading" secondItem="Ncs-M1-ngq" secondAttribute="leading" constant="44" id="csn-mX-O9A"/>
+                            <constraint firstItem="mCI-ro-cBy" firstAttribute="height" secondItem="Ncs-M1-ngq" secondAttribute="height" multiplier="349/812" id="tNV-jf-KNE"/>
                         </constraints>
                     </view>
                 </viewController>
