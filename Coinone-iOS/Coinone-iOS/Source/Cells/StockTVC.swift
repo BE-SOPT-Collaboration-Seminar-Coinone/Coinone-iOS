@@ -82,7 +82,7 @@ class StockTVC: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -149,18 +149,23 @@ extension StockTVC {
 
 extension StockTVC {
     func setData(coinLogoImageName: String, coinEnglishTitle: String, coinKoreanTitle: String, coinCurrentPrice: String, riseOrDescent: String, percentage: String, coinTotalPrice: String) {
-      self.logoImage.imageFromUrl(coinLogoImageName, defaultImgPath: "https://sopt-8-coinone.s3.ap-northeast-2.amazonaws.com/KLAY.png")
-      self.titleLabel.setLabel(text: coinEnglishTitle, textColor: .black, font: .notoSansKRBoldFont(fontSize: 14))
-      self.subTitleLabel.setLabel(text: coinKoreanTitle, textColor: .coinGray, font: .notoSansKRMediumFont(fontSize: 10))
-      if riseOrDescent == "+" {
-        self.curValueLabel.setLabel(text: coinCurrentPrice, textColor: .textRed, font: .boldSystemFont(ofSize: 14))
-        self.rateLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .textRed, font: .systemFont(ofSize: 14, weight: .regular))
-      }
-      else {
-        self.curValueLabel.setLabel(text: coinCurrentPrice, textColor: .mainBlue, font: .boldSystemFont(ofSize: 14))
-        self.rateLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .mainBlue, font: .systemFont(ofSize: 14, weight: .regular))
-      }
-      self.transPriceLabel.setLabel(text: "\(coinTotalPrice.dropLast(8))억", textColor: .coinGray, font: .systemFont(ofSize: 14, weight: .regular))
+//        self.logoImage.imageFromUrl(coinLogoImageName, defaultImgPath:"https://sopt-8-coinone.s3.ap-northeast-2.amazonaws.com/KLAY.png")
+        
+        let string = coinLogoImageName
+        let url = URL(string: string)!
+        self.logoImage.kf.setImage(with: url)
+        
+        self.titleLabel.setLabel(text: coinEnglishTitle, textColor: .black, font: .notoSansKRBoldFont(fontSize: 14))
+        self.subTitleLabel.setLabel(text: coinKoreanTitle, textColor: .coinGray, font: .notoSansKRMediumFont(fontSize: 10))
+        if riseOrDescent == "+" {
+            self.curValueLabel.setLabel(text: coinCurrentPrice, textColor: .textRed, font: .boldSystemFont(ofSize: 14))
+            self.rateLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .textRed, font: .systemFont(ofSize: 14, weight: .regular))
+        }
+        else {
+            self.curValueLabel.setLabel(text: coinCurrentPrice, textColor: .mainBlue, font: .boldSystemFont(ofSize: 14))
+            self.rateLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .mainBlue, font: .systemFont(ofSize: 14, weight: .regular))
+        }
+        self.transPriceLabel.setLabel(text: "\(coinTotalPrice.dropLast(8))억", textColor: .coinGray, font: .systemFont(ofSize: 14, weight: .regular))
     }
 }
 
