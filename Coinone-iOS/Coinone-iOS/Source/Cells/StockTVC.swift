@@ -141,33 +141,26 @@ extension StockTVC {
         
         transPriceLabel.snp.makeConstraints { make in
             make.top.equalTo(backView.snp.top).inset(22)
-            make.leading.equalTo(backView.snp.leading).inset(279)
+            make.leading.equalTo(backView.snp.leading).inset(299)
             make.height.equalTo(17)
         }
     }
 }
 
 extension StockTVC {
-    func setData(coinLogoImageName: String, coinEnglishTitle: String, coinKoreanTitle: String, coinCurrentPrice: Float, riseOrDescent: String, percentage: Double, coinTotalPrice: Float) {
-        let formatter = NumberFormatter().then {
-          $0.numberStyle = .decimal
-        }
-        
-        self.logoImage.image = UIImage(named: coinLogoImageName)
-        self.titleLabel.text = coinEnglishTitle
-        self.subTitleLabel.text = coinKoreanTitle
-        
-        
-        if riseOrDescent == "+" {
-            self.curValueLabel.setLabel(text: "\(formatter.string(from: NSNumber(value: coinCurrentPrice))!)", textColor: .textRed, font: .boldSystemFont(ofSize: 14))
-            self.rateLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .textRed, font: .systemFont(ofSize: 14, weight: .regular))
-        } else {
-            self.curValueLabel.setLabel(text: "\(formatter.string(from: NSNumber(value: coinCurrentPrice))!)", textColor: .mainBlue, font: .boldSystemFont(ofSize: 14))
-            self.rateLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .mainBlue, font: .systemFont(ofSize: 14, weight: .regular))
-        }
-        
-        self.transPriceLabel.setLabel(text: "\(formatter.string(from: NSNumber(value:coinTotalPrice))!)억", textColor: .coinGray, font: .systemFont(ofSize: 14, weight: .regular))
-        
+    func setData(coinLogoImageName: String, coinEnglishTitle: String, coinKoreanTitle: String, coinCurrentPrice: String, riseOrDescent: String, percentage: String, coinTotalPrice: String) {
+      self.logoImage.imageFromUrl(coinLogoImageName, defaultImgPath: "https://sopt-8-coinone.s3.ap-northeast-2.amazonaws.com/KLAY.png")
+      self.titleLabel.setLabel(text: coinEnglishTitle, textColor: .black, font: .notoSansKRBoldFont(fontSize: 14))
+      self.subTitleLabel.setLabel(text: coinKoreanTitle, textColor: .coinGray, font: .notoSansKRMediumFont(fontSize: 10))
+      if riseOrDescent == "+" {
+        self.curValueLabel.setLabel(text: coinCurrentPrice, textColor: .textRed, font: .boldSystemFont(ofSize: 14))
+        self.rateLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .textRed, font: .systemFont(ofSize: 14, weight: .regular))
+      }
+      else {
+        self.curValueLabel.setLabel(text: coinCurrentPrice, textColor: .mainBlue, font: .boldSystemFont(ofSize: 14))
+        self.rateLabel.setLabel(text: "\(riseOrDescent)\(percentage)%", textColor: .mainBlue, font: .systemFont(ofSize: 14, weight: .regular))
+      }
+      self.transPriceLabel.setLabel(text: "\(coinTotalPrice.dropLast(8))억", textColor: .coinGray, font: .systemFont(ofSize: 14, weight: .regular))
     }
 }
 
