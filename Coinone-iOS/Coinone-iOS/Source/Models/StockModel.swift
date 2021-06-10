@@ -10,7 +10,8 @@ struct StockModel {
     var logoImage: String!
     var title: String!
     var subTitle: String!
-    var curValue: String!
-    var rate: String!
-    var transPrice: Int!
+    var curValue: Float!
+    var riseOrDescent: String
+    var rate: Double!
+    var transPrice: Float!
 }
