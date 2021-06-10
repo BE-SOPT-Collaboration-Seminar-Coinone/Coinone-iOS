@@ -13,6 +13,10 @@ class FilterCollectionViewCell: UICollectionViewCell {
   
   // MARK: - Identifier
   let identifier = "FilterCollectionViewCell"
+  static var titleTag = true
+  static var currentPriceTag = true
+  static var fluctuationTag = true
+  static var totalPriceTag = true
   
   // MARK: - LifeCycles
   override func awakeFromNib() {
