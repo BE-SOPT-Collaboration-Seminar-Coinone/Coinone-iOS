@@ -16,7 +16,6 @@ class MyTableViewCell: UITableViewCell {
     @IBOutlet weak var CompanyNameKR: UILabel!
     @IBOutlet weak var Ratenum: UILabel!
     @IBOutlet weak var RiseRate: UILabel!
-    @IBOutlet weak var riseImage: UIImageView!
     @IBOutlet weak var CompareRiseRate: UILabel!
     @IBOutlet weak var graphImage: UIImageView!
     
@@ -38,7 +37,6 @@ class MyTableViewCell: UITableViewCell {
                      companyNameKR : String,
                      ratenum : String,
                      riseRate : String,
-                     RiseImage : String,
                      compareRiseRate : String,
                      GraphImage : String
                      )
@@ -52,11 +50,12 @@ class MyTableViewCell: UITableViewCell {
                 LogoImage.image = image
             
             }
-           if let
-                image = UIImage(named : RiseImage)
-           {
-                riseImage.image = image
-           }
+        self.LogoImage.imageFromUrl(logoImage, defaultImgPath: "https://sopt-8-coinone.s3.ap-northeast-2.amazonaws.com/KLAY.png")
+//           if let
+//                image = UIImage(named : RiseImage)
+//           {
+//                riseImage.image = image
+//           }
             if let
                 image = UIImage(named : GraphImage)
             {
@@ -70,5 +69,5 @@ class MyTableViewCell: UITableViewCell {
             CompareRiseRate.text = compareRiseRate
        
         }
-
+    
 }

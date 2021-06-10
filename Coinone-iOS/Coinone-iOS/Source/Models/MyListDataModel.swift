@@ -10,12 +10,12 @@ import UIKit
 
 struct MyListDataModel
 {
-                    var logoImage : String
-                    var companyName : String
-                    var companyNameKR : String
-                    var ratenum : String
-                    var riseRate : String
-                    var RiseImage : String
-                    var compareRiseRate : String
-                    var GraphImage : String
+    var logoImage : String
+    var companyName : String
+    var companyNameKR : String
+    var ratenum : String
+    var riseRate : String
+    var plusorminus : String
+    var compareRiseRate : String
+    var GraphImage : String
 }
