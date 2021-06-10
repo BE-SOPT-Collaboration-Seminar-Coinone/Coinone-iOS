@@ -35,11 +35,14 @@ class TransactionViewController: UIViewController {
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
     collectionView.isScrollEnabled = true
     collectionView.translatesAutoresizingMaskIntoConstraints = false
+    collectionView.allowsMultipleSelection = true
     return collectionView
   }()
   
   var menuTitles: [String] = ["마이", "거래소", "간편구매", "정보"]
   var filterTitles: [String] = ["코인명", "현재가", "등락률", "거래대금"]
+  var sort: String = "total-price"
+  var ascending: String = "-1"
 }
 
 // MARK: - Extensions
@@ -196,6 +199,7 @@ extension TransactionViewController: UICollectionViewDataSource {
           return UICollectionReusableView()
         }
         footerView.awakeFromNib()
+        footerView.setInitialList(sort: self.sort, ascending: self.ascending)
         reusableView = footerView
       }
     }
@@ -210,6 +214,65 @@ extension TransactionViewController: UICollectionViewDataSource {
     if indexPath.section == 0 && indexPath.item == 0 && self.navigationController?.parent == nil {
       HomeViewController.menuIndex = 0
       self.navigationController?.popViewController(animated: false)
+    }
+    if indexPath.section == 1 {
+      switch(indexPath.item) {
+      case 0:
+        if FilterCollectionViewCell.titleTag == true {
+          ascending = "-1"
+          FilterCollectionViewCell.titleTag = false
+        }
+        else {
+          ascending = "1"
+          FilterCollectionViewCell.titleTag = true
+        }
+        self.sort = "title"
+        collectionView.reloadData()
+      case 1:
+        if FilterCollectionViewCell.currentPriceTag == true {
+          ascending = "-1"
+          FilterCollectionViewCell.currentPriceTag = false
+        }
+        else {
+          ascending = "1"
+          FilterCollectionViewCell.currentPriceTag = true
+        }
+        self.sort = "current-price"
+        collectionView.reloadData()
+      case 2:
+        if FilterCollectionViewCell.fluctuationTag == true {
+          ascending = "-1"
+          FilterCollectionViewCell.fluctuationTag = false
+        }
+        else {
+          ascending = "1"
+          FilterCollectionViewCell.fluctuationTag = true
+        }
+        self.sort = "degree"
+        collectionView.reloadData()
+      case 3:
+        if FilterCollectionViewCell.totalPriceTag == true {
+          ascending = "-1"
+          FilterCollectionViewCell.totalPriceTag = false
+        }
+        else {
+          ascending = "1"
+          FilterCollectionViewCell.totalPriceTag = true
+        }
+        self.sort = "total-price"
+        collectionView.reloadData()
+      default:
+        if FilterCollectionViewCell.totalPriceTag == true {
+          ascending = "-1"
+          FilterCollectionViewCell.totalPriceTag = false
+        }
+        else {
+          ascending = "1"
+          FilterCollectionViewCell.totalPriceTag = true
+        }
+        self.sort = "total-price"
+        collectionView.reloadData()
+      }
     }
   }
 }

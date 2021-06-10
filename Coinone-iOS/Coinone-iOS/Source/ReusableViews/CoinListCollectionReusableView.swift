@@ -14,11 +14,12 @@ class CoinListCollectionReusableView: UICollectionReusableView {
   
   // MARK: - Identifier
   let identifier = "CoinListCollectionReusableView"
+  var sort = "total-price"
+  var ascending = "-1"
   
   // MARK: - LifeCycles
   override func awakeFromNib() {
     super.awakeFromNib()
-    setInitialList()
     register()
     layout()
     self.coinListTableView.delegate = self
@@ -27,20 +28,7 @@ class CoinListCollectionReusableView: UICollectionReusableView {
   
   // MARK: - Components
   let coinListTableView = UITableView()
-  var coinModel: [CoinListModel] = [CoinListModel(coinLogoImageName: "coinLogo",
-                                                  coinEnglishTitle: "XRP",
-                                                  coinKoreanTitle: "리플",
-                                                  coinCurrentPrice: "1625",
-                                                  riseOrDescent: "-",
-                                                  percentage: "0.37",
-                                                  coinTotalPrice: "2059"),
-                                    CoinListModel(coinLogoImageName: "coinLogo",
-                                                  coinEnglishTitle: "XRP",
-                                                  coinKoreanTitle: "리플",
-                                                  coinCurrentPrice: "1625",
-                                                  riseOrDescent: "+",
-                                                  percentage: "0.37",
-                                                  coinTotalPrice: "2059")]
+  var coinModel: [CoinListModel] = []
 }
 
 // MARK: - Extensions
@@ -63,8 +51,8 @@ extension CoinListCollectionReusableView {
       }
     }
   }
-  func setInitialList() {
-    CoinFilterService.shared.sortCoin(sort: "total-price", ascending: "-1") {
+  func setInitialList(sort: String, ascending: String) {
+    CoinFilterService.shared.sortCoin(sort: sort, ascending: ascending) {
       (networkResult) in
       switch(networkResult) {
       case .success(let data):
