@@ -54,6 +54,8 @@
 		E8EC22B2265445210027E8A8 /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC22B1265445210027E8A8 /* MyTableViewCell.swift */; };
 		E8EC22B6265448200027E8A8 /* MyListDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EC22B5265448200027E8A8 /* MyListDataModel.swift */; };
 		E8EC22B92654BDD00027E8A8 /* MyPopup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8EC22B82654BDD00027E8A8 /* MyPopup.storyboard */; };
+		E8F3D1442671EBC9009F342D /* MyDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F3D1432671EBC9009F342D /* MyDataModel.swift */; };
+		E8F3D1472671EC59009F342D /* GetMyDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F3D1462671EC59009F342D /* GetMyDataService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +108,8 @@
 		E8EC22B1265445210027E8A8 /* MyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
 		E8EC22B5265448200027E8A8 /* MyListDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListDataModel.swift; sourceTree = "<group>"; };
 		E8EC22B82654BDD00027E8A8 /* MyPopup.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPopup.storyboard; sourceTree = "<group>"; };
+		E8F3D1432671EBC9009F342D /* MyDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDataModel.swift; sourceTree = "<group>"; };
+		E8F3D1462671EC59009F342D /* GetMyDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +156,7 @@
 				E8EC22B5265448200027E8A8 /* MyListDataModel.swift */,
 				CC0A1A9F26564FDA000B65B9 /* CoinListModel.swift */,
 				CC33700B2667C3C4004F067E /* SortedCoinModel.swift */,
+				E8F3D1432671EBC9009F342D /* MyDataModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -173,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				CC3370122667C5D4004F067E /* CoinFilterService.swift */,
+				E8F3D1462671EC59009F342D /* GetMyDataService.swift */,
 			);
 			path = NetworkServices;
 			sourceTree = "<group>";
@@ -435,6 +441,7 @@
 				CC6608BE265450B0004DD7D2 /* PopupHsViewController.swift in Sources */,
 				CC0E232D2652241D00B982A0 /* StockModel.swift in Sources */,
 				CCAA9A2B264FACDD008E50BF /* UIColor+.swift in Sources */,
+				E8F3D1472671EC59009F342D /* GetMyDataService.swift in Sources */,
 				CC770CF8265396CF004095A6 /* UILabel+.swift in Sources */,
 				CC0E232B265223FE00B982A0 /* StockTVC.swift in Sources */,
 				CC33700F2667C549004F067E /* APIConstants.swift in Sources */,
@@ -458,6 +465,7 @@
 				CC770D0126540943004095A6 /* Identifiable.swift in Sources */,
 				CCA0ECC8264FA7A4001CC563 /* SceneDelegate.swift in Sources */,
 				CC770D0526542DDF004095A6 /* CoinModel.swift in Sources */,
+				E8F3D1442671EBC9009F342D /* MyDataModel.swift in Sources */,
 				CC272E6526517F1000637BCE /* TransactionViewController.swift in Sources */,
 				CC33700C2667C3C4004F067E /* SortedCoinModel.swift in Sources */,
 			);
