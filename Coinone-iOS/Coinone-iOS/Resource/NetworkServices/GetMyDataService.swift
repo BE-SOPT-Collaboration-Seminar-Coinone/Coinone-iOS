@@ -20,7 +20,7 @@ struct GetMyDataService
         // completion 클로저를 @escaping closure로 정의합니다.
         
         
-        let URL = "http://52.79.251.168:5000/api/my-coin/1"
+        let URL = "http://3.35.8.123:5000/api/my-coin/1"
         let header : HTTPHeaders = ["Content-Type": "application/json"]
         
         let dataRequest = AF.request(URL,
@@ -31,16 +31,20 @@ struct GetMyDataService
         
         dataRequest.responseData { dataResponse in
             
-            
+            print("서버 결과")
             switch dataResponse.result {
             case .success:
                                 
+                print("@@@@@")
                 guard let statusCode = dataResponse.response?.statusCode else {return}
                 guard let value = dataResponse.value else {return}
+       
                 let networkResult = self.judgeStatus(by: statusCode, value)
                 completion(networkResult)
             
-            case .failure: completion(.pathErr)
+            case .failure:
+                print("서버 실패")
+                completion(.pathErr)
                 
             }
         }
@@ -64,12 +68,17 @@ struct GetMyDataService
         
         let decoder = JSONDecoder()
 
+        
         guard let decodedData = try? decoder.decode(MyDataModel.self, from: data)
         else { return .pathErr}
+        
+
         // 우선 MyDataModel 형태로 decode(해독)을 한번 거칩니다. 실패하면 pathErr
         
         // 해독에 성공하면 My data를 success에 넣어줍니다.
+        
         return .success(decodedData.coin)
+       
 
     }
     

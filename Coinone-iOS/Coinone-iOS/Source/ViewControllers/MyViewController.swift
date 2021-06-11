@@ -4,7 +4,9 @@
 //
 //  Created by 김지수 on 2021/05/15.
 //
+import Alamofire
 import UIKit
+import Kingfisher
 
 class MyViewController: UIViewController {
   
@@ -28,7 +30,7 @@ class MyViewController: UIViewController {
                                                       ratenum : "1,700.0",
                                                       riseRate :"77.7",
                                                       plusorminus: "+",
-                                                      compareRiseRate: "1.11%",
+                                                      compareRiseRate: "1.11",
                                                       GraphImage: "Graph Image"),
                                       
                                       
@@ -38,13 +40,13 @@ class MyViewController: UIViewController {
                                                       ratenum : "2,000.0",
                                                       riseRate :"88.8",
                                                       plusorminus: "+",
-                                                      compareRiseRate: "99.99%",
+                                                      compareRiseRate: "99.99",
                                                       GraphImage: "Graph Image")]
     
     //    Popup 창이 계속해서 반복해서 나오는 걸 탈출시키기 위해서 //
     var popupIsShown : Bool = false
     override func viewDidAppear(_ animated: Bool) {
-      
+        getMyData()
       
       if popupIsShown == false{
         
@@ -66,7 +68,7 @@ class MyViewController: UIViewController {
     override func viewDidLoad() {
       super.viewDidLoad()
       
-      
+        getMyData()
 
       self.underlineview.layer.cornerRadius = 3
       self.myTableView.delegate = self
@@ -78,47 +80,15 @@ class MyViewController: UIViewController {
       self.navigationController?.navigationBar.isHidden = true
       
       
-      // 서버통신
+      
         
-        GetMyDataService.shared.getMyInfo { (response) in
-                    switch(response)
-                    {
-                    case .success(let myData):
-                        if let data = myData as? MyDataModel {
-                            for i in 0..<data.coin.count {
-                                self.myList.append(MyListDataModel(
-                                                    logoImage: data.coin[i].coinLogoImage,
-                                                    companyName: data.coin[i].coinEnglishTitle,
-                                                    companyNameKR: data.coin[i].coinKoreanTitle,
-                                                    ratenum: data.coin[i].coinCurrentPrice,
-                                                    riseRate: data.coin[i].degree,
-                                                    plusorminus: data.coin[i].riseOrDescent,
-                                                    compareRiseRate: data.coin[i].percentage,
-                                                    GraphImage: data.coin[i].graphImage))
-                            }
-                            
-                        }
-                    case .requestErr :
-                        print("requestERR")
-                    case .pathErr :
-                        print("pathERR")
-                    case .serverErr:
-                        print("serverERR")
-                    case .networkFail:
-                        print("networkFail")
-                    }
-                }
     }
     
-    
-    
-    //  MyList 에 들어가는 Data ///
-    
-    }
+}
     
   
   
-  extension MyViewController : UITableViewDelegate
+extension MyViewController : UITableViewDelegate
   {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
       
@@ -147,9 +117,62 @@ class MyViewController: UIViewController {
                      companyNameKR: myList[indexPath.row].companyNameKR,
                      ratenum: myList[indexPath.row].ratenum,
                      riseRate: myList[indexPath.row].riseRate,
+                     plusorminus: myList[indexPath.row].plusorminus,
                      compareRiseRate: myList[indexPath.row].compareRiseRate,
                      GraphImage: myList[indexPath.row].GraphImage)
       
       return myCell
     }
   }
+
+//서버통신
+extension MyViewController{
+    func getMyData(){
+          GetMyDataService.shared.getMyInfo { (response) in
+                      switch(response)
+                      {
+                      case .success(let myData):
+                        self.myList.removeAll()
+                          if let data = myData as? [Coin] {
+                            print("데이터 들어옴!",data)
+                            for i in 0..<data.count {
+                                  self.myList.append(MyListDataModel(
+                                                      logoImage: data[i].coinLogoImage,
+                                                      companyName: data[i].coinEnglishTitle,
+                                                      companyNameKR: data[i].coinKoreanTitle,
+                                                      ratenum: data[i].coinCurrentPrice,
+                                                      riseRate: data[i].degree,
+                                                      plusorminus: data[i].riseOrDescent,
+                                                      compareRiseRate: data[i].percentage,
+                                                      GraphImage: data[i].graphImage))
+
+
+                              }
+                            print("현재 데이터",self.myList)
+                            
+                            self.myTableView.reloadData()
+                            
+                            
+                           
+                
+                          }
+                        else
+                          {
+                            print("메롱:")
+                          }
+                      case .requestErr :
+                          print("requestERR")
+                      case .pathErr :
+                          print("pathERR")
+                      case .serverErr:
+                          print("serverERR")
+                      case .networkFail:
+                          print("networkFail")
+                      }
+                  }
+    }
+}
+        
+        
+
+

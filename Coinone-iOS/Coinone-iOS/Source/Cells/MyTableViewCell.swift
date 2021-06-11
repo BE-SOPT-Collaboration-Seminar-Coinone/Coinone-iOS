@@ -31,42 +31,42 @@ class MyTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+}
+extension MyTableViewCell{
     
     func setData(    logoImage : String,
                      companyName : String,
                      companyNameKR : String,
                      ratenum : String,
                      riseRate : String,
+                     plusorminus : String,
                      compareRiseRate : String,
                      GraphImage : String
                      )
         {
         
-//        불러오고 싶은 이미지가 여러개 인 경우 if let 구문을 여러번 사용해서 받아온다 //
-            if let
-                image = UIImage(named: logoImage)
-            
-            {
-                LogoImage.image = image
-            
-            }
+
+          
         self.LogoImage.imageFromUrl(logoImage, defaultImgPath: "https://sopt-8-coinone.s3.ap-northeast-2.amazonaws.com/KLAY.png")
-//           if let
-//                image = UIImage(named : RiseImage)
-//           {
-//                riseImage.image = image
-//           }
-            if let
-                image = UIImage(named : GraphImage)
-            {
-                graphImage.image = image
-            }
+        self.CompanyName.setLabel(text: companyName, textColor: .black, font: .notoSansKRBoldFont(fontSize: 14))
+        self.CompanyNameKR.setLabel(text: companyNameKR, textColor: .coinGray, font: .notoSansKRMediumFont(fontSize: 10))
+        self.Ratenum.setLabel(text: ratenum, textColor: .black, font: .notoSansKRBoldFont(fontSize: 14))
+        if plusorminus == "+" {
+            self.RiseRate.setLabel(text: riseRate, textColor: .textRed, font: .boldSystemFont(ofSize: 14))
+            self.CompareRiseRate.setLabel(text: "\(plusorminus)\(compareRiseRate)%", textColor: .textRed, font: .systemFont(ofSize: 14, weight: .regular))
+        }
+        else {
+            self.RiseRate.setLabel(text: riseRate, textColor: .mainBlue, font: .boldSystemFont(ofSize: 14))
+            self.CompareRiseRate.setLabel(text: "\(plusorminus)\(compareRiseRate)%", textColor: .mainBlue, font: .systemFont(ofSize: 14, weight: .regular))
+        }
+        self.graphImage.imageFromUrl(GraphImage, defaultImgPath: "https://sopt-8-coinone.s3.ap-northeast-2.amazonaws.com/KLAY_graph.png")
+        
                     
-            CompanyName.text = companyName
-            CompanyNameKR.text = companyNameKR
-            Ratenum.text = ratenum
-            RiseRate.text = riseRate
-            CompareRiseRate.text = compareRiseRate
+//            CompanyName.text = companyName
+//            CompanyNameKR.text = companyNameKR
+//            Ratenum.text = ratenum
+//            RiseRate.text = riseRate
+//            CompareRiseRate.text = compareRiseRate
        
         }
     
